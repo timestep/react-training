@@ -18,6 +18,7 @@ System.config({
     "babel": "npm:babel-core@5.8.35",
     "babel-runtime": "npm:babel-runtime@5.8.35",
     "basscss": "npm:basscss@7.1.0",
+    "classnames": "npm:classnames@2.2.3",
     "core-js": "npm:core-js@1.2.6",
     "jsonp": "npm:jsonp@0.2.0",
     "react": "npm:react@0.14.6",

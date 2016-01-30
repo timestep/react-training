@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Card from './components/Card';
+import KitchenSink from './containers/KitchenSink';
 
 ReactDOM.render(
-  <Card />,
+  <KitchenSink />,
   document.getElementById('root')
 );
