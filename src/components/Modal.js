@@ -45,7 +45,7 @@ const styles = {
     transition: 'all 300ms',
   },
   inner: {
-    top: '3rem',
+    top: '3.25rem',
     left: '1rem',
     right: '1rem',
     maxWidth: '650px',

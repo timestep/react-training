@@ -28,7 +28,7 @@ const styles = {
     transition: 'all 300ms',
   },
   blur: {
-    '-webkit-filter': 'blur(5px)',
+    WebkitFilter: 'blur(5px)',
   },
 };
 
