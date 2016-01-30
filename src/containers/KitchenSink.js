@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 
 import { showModal, hideModal } from '../reducers/modal';
@@ -39,7 +39,7 @@ const KitchenSink = (props) => {
 
   return (
     <div>
-      <Nav />
+      <Nav title="Kitchen Sink" />
       <Content blur={ modalVisible }>
         <div className="clearfix mb2">
           <h1>Kitchen Sink</h1>
