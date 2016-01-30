@@ -1,5 +1,10 @@
 # react-training
 
+## Mockup
+
+![alt text](https://github.com/neilff/react-training/raw/master/mockup.png "Mockup")
+
+
 ## Getting Started
 
 ```
