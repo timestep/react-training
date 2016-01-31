@@ -52,8 +52,8 @@ const KitchenSink = (props) => {
             <hr />
           </div>
           <div className="col col-12">
-            <Card />
-            <Card />
+            <Card topic="Demo" />
+            <Card topic="Demo" />
           </div>
         </div>
 

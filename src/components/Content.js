@@ -3,7 +3,7 @@ import React, { PropTypes } from 'react';
 const Content = ({ children, blur }) => {
   return (
     <div
-      className="p2"
+      className="p2 absolute left-0 right-0 bottom-0"
       style={{
         ...styles.base,
         ...blur ? styles.blur : null,
@@ -24,7 +24,9 @@ Content.propTypes = {
 
 const styles = {
   base: {
-    marginTop: '6rem',
+    top: '119px',
+    overflowY: 'scroll',
+    overflowX: 'hidden',
     transition: 'all 300ms',
   },
   blur: {

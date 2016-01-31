@@ -4,16 +4,18 @@ import classNames from 'classnames';
 const Button = (props) => {
   const {
     children,
-    onClick,
-    disabled,
-    type,
     className,
+    disabled,
+    onClick,
+    style,
+    type,
   } = props;
 
   const classes = classNames('btn', 'btn-primary', className);
 
   return (
     <button
+      style={ style }
       disabled={ disabled }
       onClick={ onClick }
       type={ type }
@@ -25,17 +27,19 @@ const Button = (props) => {
 
 Button.propTypes = {
   children: PropTypes.node.isRequired,
-  onClick: PropTypes.func,
-  disabled: PropTypes.bool,
-  type: PropTypes.oneOf(['button', 'submit', 'reset']),
   className: PropTypes.string,
+  disabled: PropTypes.bool,
+  onClick: PropTypes.func,
+  style: PropTypes.object,
+  type: PropTypes.oneOf(['button', 'submit', 'reset']),
 };
 
 Button.defaultProps = {
-  onClick: () => {},
+  className: '',
   disabled: false,
+  onClick: () => {},
+  style: {},
   type: 'button',
-  className: ''
 };
 
 export default Button;

@@ -28,6 +28,7 @@ ProfileCard.propTypes = {
   name: PropTypes.string.isRequired,
   topics: PropTypes.string,
 };
+
 ProfileCard.defaultProps = {
   src: 'src/assets/placeholder.svg',
   topics: '',

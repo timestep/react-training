@@ -17,9 +17,8 @@ const Card = ({ topic }) => {
 Card.propTypes = {
   topic: PropTypes.string.isRequired,
 };
-Card.defaultProps = {
-  topic: 'Topic',
-};
+
+Card.defaultProps = {};
 
 const styles = {
   inner: {
