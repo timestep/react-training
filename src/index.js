@@ -1,10 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import { fromJS } from 'immutable';
+
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import { Router, Route, browserHistory, IndexRoute } from 'react-router'
 import { syncHistory, routeReducer } from 'react-router-redux'
+import { reducer as formReducer } from 'redux-form';
 
 import * as reducers from './reducers/index';
 
@@ -19,11 +22,12 @@ import Topics from './containers/Topics';
 
 // Configure our reducer
 const reducer = combineReducers(Object.assign({}, reducers, {
-  routing: routeReducer
+  routing: routeReducer,
+  form: formReducer,
 }));
 
 // Syncs route actions to the history
-const reduxRouterMiddleware = syncHistory(browserHistory)
+const reduxRouterMiddleware = syncHistory(browserHistory);
 
 // Configure our store
 const store = compose(

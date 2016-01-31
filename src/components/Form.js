@@ -1,11 +1,15 @@
 import React, { PropTypes } from 'react';
 
-const Form = ({ children, onSubmit, style, className }) => {
+const Form = ({ children, handleSubmit, style, className }) => {
   return (
     <form
       style={ style }
-      className={ `${ className } p2` }
-      onSubmit={ onSubmit }>
+      className={ `${ className }` }
+      onSubmit={(e) => {
+        e.preventDefault();
+        document.activeElement.blur();
+        handleSubmit();
+      }}>
       { children }
     </form>
   );
@@ -19,7 +23,7 @@ Form.defaultProps = {
 Form.propTypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
-  onSubmit: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
   style: PropTypes.object,
 };
 

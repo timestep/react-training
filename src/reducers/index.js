@@ -1,9 +1,9 @@
-import modal from './modal';
 import session from './session';
 import topics from './topics';
+import modal from './modal';
 
 export {
-  modal,
   session,
   topics,
+  modal,
 };

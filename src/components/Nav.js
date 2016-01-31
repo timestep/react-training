@@ -2,13 +2,15 @@ import React, { PropTypes } from 'react';
 
 import NavLink from './NavLink';
 
-const Nav = ({ title }) => {
+const Nav = ({ title, left, right }) => {
   return (
     <div className="fixed top-0 left-0 right-0 z4 bg-blue white">
       <div
         style={ styles.center }
         className="flex flex-auto p2">
-        <span className="h3">{ title }</span>
+        { left }
+        <div className="h3 flex-auto center">{ title }</div>
+        { right }
       </div>
       <div
         style={ styles.center }
@@ -28,6 +30,8 @@ Nav.defaultProps = {
 
 Nav.propTypes = {
   title: PropTypes.string,
+  left: PropTypes.node,
+  right: PropTypes.node,
 };
 
 const styles = {

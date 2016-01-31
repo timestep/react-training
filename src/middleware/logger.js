@@ -17,7 +17,12 @@ const logger = createLogger({
   },
   predicate: (getState, { type }) => {
     // List of actions we want to ignore
-    const blacklist = [];
+    const blacklist = [
+      'redux-form/BLUR',
+      'redux-form/CHANGE',
+      'redux-form/FOCUS',
+      'redux-form/TOUCH',
+    ];
 
     return blacklist.every(i => type !== i);
   },
