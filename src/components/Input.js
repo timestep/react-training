@@ -3,7 +3,6 @@ import React, { PropTypes }  from 'react';
 const Input = (props) => {
   const {
     type,
-    value,
     disabled,
     style,
     placeholder,
@@ -17,7 +16,6 @@ const Input = (props) => {
       className="block col-12 mb1 field"
       disabled={ disabled }
       placeholder={ placeholder }
-      value={ value }
       { ...fieldDefinition } />
   );
 };

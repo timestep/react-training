@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { Map } from 'immutable';
 
-import Button from '../components/Button';
+import TextButton from '../components/TextButton';
 import Content from '../components/Content';
 import LoginForm from '../components/LoginForm';
 import Modal from '../components/Modal';
@@ -45,21 +45,22 @@ const Navigator = (props) => {
     <div>
       <Nav
         left={
-          <div>{ session.get('displayName') }</div>
+          <TextButton className="white">
+            { session.get('displayName', '') }
+          </TextButton>
         }
         title="DevMatch"
         right={
-          <Button onClick={ onLogout }>Logout</Button>
+          <TextButton className="white" href onClick={ onLogout }>
+            Logout
+          </TextButton>
         } />
       <Content blur={ !isAuthenticated }>
-        {
-          isAuthenticated ? children : null
-        }
+        { isAuthenticated ? children : null }
       </Content>
 
       <Modal
         isVisible={ !isAuthenticated }>
-
         {
           (() => {
             switch (currentModal) {
@@ -94,6 +95,9 @@ const Navigator = (props) => {
                     }}>Switch to Login</a>
                   </div>
                 );
+
+              default:
+                return (<div></div>);
             }
           })()
         }

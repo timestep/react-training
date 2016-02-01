@@ -8,9 +8,13 @@ const Nav = ({ title, left, right }) => {
       <div
         style={ styles.center }
         className="flex flex-auto p2">
-        { left }
+        <div className="left-align" style={ styles.menuItem }>
+          { left }
+        </div>
         <div className="h3 flex-auto center">{ title }</div>
-        { right }
+        <div className="right-align" style={ styles.menuItem }>
+          { right }
+        </div>
       </div>
       <div
         style={ styles.center }
@@ -36,6 +40,9 @@ Nav.propTypes = {
 const styles = {
   center: {
     justifyContent: 'center',
+  },
+  menuItem: {
+    width: '120px',
   },
 };
 

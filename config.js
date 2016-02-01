@@ -16,6 +16,7 @@ System.config({
 
   map: {
     "babel": "npm:babel-core@5.8.35",
+    "babel-polyfill": "npm:babel-polyfill@6.3.14",
     "babel-runtime": "npm:babel-runtime@5.8.35",
     "basscss": "npm:basscss@7.1.0",
     "classnames": "npm:classnames@2.2.3",
@@ -32,6 +33,7 @@ System.config({
     "redux": "npm:redux@3.1.6",
     "redux-form": "npm:redux-form@4.1.6",
     "redux-logger": "npm:redux-logger@2.4.0",
+    "redux-saga": "npm:redux-saga@0.6.0",
     "redux-thunk": "npm:redux-thunk@1.0.3",
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"
@@ -103,6 +105,15 @@ System.config({
     },
     "npm:assert@1.3.0": {
       "util": "npm:util@0.10.3"
+    },
+    "npm:babel-polyfill@6.3.14": {
+      "babel-regenerator-runtime": "npm:babel-regenerator-runtime@6.3.13",
+      "babel-runtime": "npm:babel-runtime@5.8.35",
+      "core-js": "npm:core-js@1.2.6",
+      "process": "github:jspm/nodelibs-process@0.1.2"
+    },
+    "npm:babel-regenerator-runtime@6.3.13": {
+      "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:babel-runtime@5.8.35": {
       "process": "github:jspm/nodelibs-process@0.1.2"
@@ -461,6 +472,9 @@ System.config({
       "react-lazy-cache": "npm:react-lazy-cache@3.0.1",
       "react-redux": "npm:react-redux@4.1.2",
       "redux": "npm:redux@3.1.6"
+    },
+    "npm:redux-saga@0.6.0": {
+      "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:redux@3.1.6": {
       "loose-envify": "npm:loose-envify@1.1.0",

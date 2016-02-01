@@ -1,11 +1,13 @@
+import create from './create';
+import matches from './matches';
+import modal from './modal';
 import session from './session';
 import topics from './topics';
-import modal from './modal';
-import create from './create';
 
 export {
+  create,
+  matches,
+  modal,
   session,
   topics,
-  modal,
-  create,
 };

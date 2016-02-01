@@ -11,8 +11,6 @@ import TopicCard from '../components/TopicCard';
 import Container from '../components/Container';
 
 function mapStateToProps(state) {
-  const userId = state.session.get('id');
-
   return {
     isLoading: state.topics.get('pending'),
     latestCard: state.topics.get('result'),
@@ -22,8 +20,8 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     onComponentDidMount: () => dispatch(requestTopics()),
-    markInterested: (id) => dispatch(markInterested(id)),
-    markUninterested: (id) => dispatch(markUninterested(id)),
+    onMarkInterested: (id) => dispatch(markInterested(id)),
+    onMarkUninterested: (id) => dispatch(markUninterested(id)),
   };
 }
 
@@ -36,8 +34,8 @@ class Home extends Component {
     const {
       latestCard,
       isLoading,
-      markInterested,
-      markUninterested,
+      onMarkInterested,
+      onMarkUninterested,
     } = this.props;
 
     return (
@@ -50,14 +48,14 @@ class Home extends Component {
                   key={ latestCard.get('objectId') }
                   topic={ latestCard.get('title') }
                   description={ latestCard.get('description') }
-                  onYes={ () => markInterested(latestCard) }
-                  onNo={ () => markUninterested(latestCard) } />
-              );
-            } else {
-              return (
-                <h2>No new topics!</h2>
+                  onYes={ () => onMarkInterested(latestCard) }
+                  onNo={ () => onMarkUninterested(latestCard) } />
               );
             }
+
+            return (
+              <h2>No new topics! Check back soon!</h2>
+            );
           })()
         }
       </Container>
@@ -70,8 +68,8 @@ Home.defaultProps = {};
 Home.propTypes = {
   latestCard: PropTypes.object,
   isLoading: PropTypes.bool.isRequired,
-  markInterested: PropTypes.func.isRequired,
-  markUninterested: PropTypes.func.isRequired,
+  onMarkInterested: PropTypes.func.isRequired,
+  onMarkUninterested: PropTypes.func.isRequired,
   onComponentDidMount: PropTypes.func.isRequired,
 };
 

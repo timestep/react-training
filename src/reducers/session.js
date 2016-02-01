@@ -20,7 +20,7 @@ const INITIAL_STATE = fromJS({
   message: false,
   authenticated: currentUser && currentUser.authenticated(),
   username: currentUser ? currentUser.get('username') : null,
-  id: currentUser ? currentUser.get('objectId') : null,
+  id: currentUser ? currentUser.id : null,
   displayName: currentUser ? currentUser.get('displayName') : null,
 });
 
@@ -83,7 +83,7 @@ function sessionReducer(state = INITIAL_STATE, action = {}) {
 }
 
 export function login({ username, password }) {
-  return (dispatch, getState) => {
+  return (dispatch) => {
     dispatch({ type: LOGIN_PENDING });
 
     return users.login(username, password)
@@ -93,7 +93,7 @@ export function login({ username, password }) {
       }))
       .then(null, err => dispatch({
         type: LOGIN_ERROR,
-        payload: err
+        payload: err,
       }));
   };
 }
@@ -101,14 +101,12 @@ export function login({ username, password }) {
 export function logout() {
   return (dispatch) => {
     return users.logout()
-      .then(dispatch({
-        type: LOGOUT,
-      }));
+      .then(dispatch({ type: LOGOUT }));
   };
 }
 
 export function register({ username, password, email, displayName }) {
-  return (dispatch, getState) => {
+  return (dispatch) => {
     dispatch({ type: REGISTER_PENDING });
 
     return users.create(username, password, email, displayName)
@@ -118,7 +116,7 @@ export function register({ username, password, email, displayName }) {
       }))
       .then(null, err => dispatch({
         type: REGISTER_ERROR,
-        payload: err
+        payload: err,
       }));
   };
 }

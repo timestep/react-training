@@ -11,10 +11,10 @@ const Debug = ({ state }) => {
 Debug.defaultProps = {};
 
 Debug.propTypes = {
-  state: React.PropTypes.oneOfType([
-    React.PropTypes.string,
-    React.PropTypes.object,
-    React.PropTypes.number,
+  state: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object,
+    PropTypes.number,
   ]),
 };
 

@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react';
-import classNames from 'classnames';
 
 function _renderLoading() {
   return (
@@ -11,25 +10,27 @@ function _renderLoading() {
   );
 }
 
-function _renderChildren(children) {
+function _renderChildren(children, className) {
   return (
-    <div style={ styles.content }>
+    <div className={ className } style={ styles.content }>
       { children }
     </div>
   );
 }
 
-const Container = ({ loading, children }) => {
-  return loading ? _renderLoading() : _renderChildren(children)
+const Container = ({ loading, children, className }) => {
+  return loading ? _renderLoading() : _renderChildren(children, className);
 };
 
 Container.defaultProps = {
   loading: false,
+  className: '',
 };
 
 Container.propTypes = {
   children: PropTypes.node.isRequired,
   loading: PropTypes.bool,
+  className: PropTypes.string,
 };
 
 const styles = {

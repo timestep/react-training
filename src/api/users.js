@@ -1,7 +1,7 @@
 import Parse from 'parse';
 
 export function create(username, password, email, displayName) {
-  var user = new Parse.User();
+  const user = new Parse.User();
 
   user.set('username', username);
   user.set('password', password);
@@ -10,14 +10,12 @@ export function create(username, password, email, displayName) {
 
   return new Promise((resolve, reject) => {
     user.signUp(null, {
-      success: response => {
-        resolve({
-          id: response.get('objectId'),
-          username: response.get('username'),
-          displayName: response.get('displayName'),
-        });
-      },
-      error: (response, err) => reject(err)
+      success: response => resolve({
+        id: response.id,
+        username: response.get('username'),
+        displayName: response.get('displayName'),
+      }),
+      error: (response, err) => reject(err),
     });
   });
 }
@@ -25,14 +23,12 @@ export function create(username, password, email, displayName) {
 export function login(username, password) {
   return new Promise((resolve, reject) => {
     Parse.User.logIn(username, password, {
-      success: response => {
-        resolve({
-          id: response.get('objectId'),
-          username: response.get('username'),
-          displayName: response.get('displayName'),
-        });
-      },
-      error: (response, err) => reject(err)
+      success: response => resolve({
+        id: response.id,
+        username: response.get('username'),
+        displayName: response.get('displayName'),
+      }),
+      error: (response, err) => reject(err),
     });
   });
 }
@@ -40,10 +36,8 @@ export function login(username, password) {
 export function logout() {
   return new Promise((resolve, reject) => {
     Parse.User.logOut({
-      success: response => {
-        resolve(response);
-      },
-      error: (response, err) => reject(err)
+      success: response => resolve(response),
+      error: (response, err) => reject(err),
     });
   });
 }

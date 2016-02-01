@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 
 import { showModal, hideModal } from '../reducers/modal';
@@ -139,6 +139,13 @@ const KitchenSink = (props) => {
       </Modal>
     </div>
   );
+};
+
+KitchenSink.propTypes = {
+  modalVisible: PropTypes.bool.isRequired,
+  onHideModal: PropTypes.func.isRequired,
+  onShowModal: PropTypes.func.isRequired,
+  state: PropTypes.object.isRequired,
 };
 
 export default connect(

@@ -1,4 +1,3 @@
-import topics from './mock/topics';
 import Parse from 'parse';
 
 export function get() {
@@ -26,9 +25,15 @@ export function getMatches() {
     query.limit(200);
 
     query.equalTo('yes', Parse.User.current());
+    query.include('yes');
 
     query.find({
-      success: list => resolve(list),
+      success: list => {
+        // Resolve only the results that have more than 1 person interested
+        const filteredList = list.filter(i => i.get('yes').length > 1);
+
+        resolve({ result: filteredList });
+      },
       error: (list, err) => reject(err),
     });
   });

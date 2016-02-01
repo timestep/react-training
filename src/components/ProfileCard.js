@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 
 const ProfileCard = ({ src, name, topics }) => {
   return (
-    <div className="p2 border flex">
+    <div className="p2 mb1 border flex">
       <img
         src={ src }
         style={ styles.image }

@@ -34,6 +34,6 @@ const styles = {
   button: {
     width: '150px',
   },
-}
+};
 
 export default TopicCard;

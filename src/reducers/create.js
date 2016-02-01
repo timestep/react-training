@@ -61,13 +61,13 @@ export function clearSuccessMessage() {
 }
 
 export function createTopic({ title, description }) {
-  return (dispatch, getState) => {
+  return (dispatch) => {
     dispatch(createTopicPending());
 
     return topics.create(title, description)
       .then(res => {
-        dispatch(createTopicSuccess(res))
-        dispatch({ type: 'redux-form/RESET', form: 'topic' })
+        dispatch(createTopicSuccess(res));
+        dispatch({ type: 'redux-form/RESET', form: 'topic' });
       })
       .then(null, err => dispatch(createTopicError(err)));
   };

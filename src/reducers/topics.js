@@ -48,7 +48,7 @@ function requestTopicsError(err) {
 }
 
 export function requestTopics() {
-  return (dispatch, getState) => {
+  return (dispatch) => {
     dispatch(requestTopicsPending());
 
     return topics.get()
@@ -58,7 +58,7 @@ export function requestTopics() {
 }
 
 export function markInterested(card) {
-  return (dispatch, getState) => {
+  return (dispatch) => {
     dispatch(requestTopicsPending());
 
     topics.markInterested(card)
@@ -69,7 +69,7 @@ export function markInterested(card) {
 }
 
 export function markUninterested(card) {
-  return (dispatch, getState) => {
+  return (dispatch) => {
     dispatch(requestTopicsPending());
 
     topics.markUninterested(card)
