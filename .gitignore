@@ -20,3 +20,4 @@ jspm_packages
 dist
 build.js
 build.js.map
+src/bootstrap.js
