@@ -3,7 +3,7 @@ import React, { PropTypes } from 'react';
 const Content = ({ children, blur }) => {
   return (
     <div
-      className="p2 absolute left-0 right-0 bottom-0"
+      className="p2 absolute left-0 right-0 bottom-0 center"
       style={{
         ...styles.base,
         ...blur ? styles.blur : null,

@@ -20,6 +20,7 @@ Debug.propTypes = {
 
 const styles = {
   overflow: 'auto',
+  textAlign: 'left',
 };
 
 export default Debug;

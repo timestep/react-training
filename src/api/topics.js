@@ -1,16 +1,73 @@
 import topics from './mock/topics';
+import Parse from 'parse';
 
-export function getTopics() {
+export function get() {
   return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      // Convert to map for easier access
-      const data = topics.reduce((acc, i) => {
-        acc[i.id.toString()] = i;
+    const Topic = Parse.Object.extend('Topic');
+    const query = new Parse.Query(Topic);
 
-        return acc;
-      }, {});
+    query.limit(1);
 
-      resolve(data);
-    }, 2000);
+    query.notEqualTo('yes', Parse.User.current());
+    query.notEqualTo('no', Parse.User.current());
+
+    query.find({
+      success: list => resolve(list[0]),
+      error: (list, err) => reject(err),
+    });
+  });
+}
+
+export function getMatches() {
+  return new Promise((resolve, reject) => {
+    const Topic = Parse.Object.extend('Topic');
+    const query = new Parse.Query(Topic);
+
+    query.limit(200);
+
+    query.equalTo('yes', Parse.User.current());
+
+    query.find({
+      success: list => resolve(list),
+      error: (list, err) => reject(err),
+    });
+  });
+}
+
+export function create(title, description) {
+  return new Promise((resolve, reject) => {
+    const Topic = Parse.Object.extend('Topic');
+    const topic = new Topic();
+
+    topic.set('createdBy', Parse.User.current());
+    topic.set('title', title);
+    topic.set('description', description);
+
+    topic.save(null, {
+      success: res => resolve(res),
+      error: (res, err) => reject(err),
+    });
+  });
+}
+
+export function markInterested(topic) {
+  return new Promise((resolve, reject) => {
+    topic.addUnique('yes', Parse.User.current());
+
+    topic.save(null, {
+      success: res => resolve(res),
+      error: (res, err) => reject(err),
+    });
+  });
+}
+
+export function markUninterested(topic) {
+  return new Promise((resolve, reject) => {
+    topic.addUnique('no', Parse.User.current());
+
+    topic.save(null, {
+      success: res => resolve(res),
+      error: (res, err) => reject(err),
+    });
   });
 }

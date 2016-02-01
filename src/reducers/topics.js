@@ -1,8 +1,8 @@
 import { fromJS } from 'immutable';
 
-import { getTopics } from '../api/topics';
+import * as topics from '../api/topics';
 
-export const REQUEST_TOPICS_PENDING = '@@reactTraining/REQUEST_TOPICS_PENDING';
+export const TOPICS_LOADING = '@@reactTraining/TOPICS_LOADING';
 export const REQUEST_TOPICS_SUCCESS = '@@reactTraining/REQUEST_TOPICS_SUCCESS';
 export const REQUEST_TOPICS_ERROR = '@@reactTraining/REQUEST_TOPICS_ERROR';
 export const MARK_INTERESTED = '@@reactTraining/MARK_INTERESTED';
@@ -11,12 +11,12 @@ export const MARK_UNINTERESTED = '@@reactTraining/MARK_UNINTERESTED';
 const INITIAL_STATE = fromJS({
   pending: false,
   hasError: false,
-  result: [],
+  result: null,
 });
 
 function topicsReducer(state = INITIAL_STATE, action = {}) {
   switch (action.type) {
-    case REQUEST_TOPICS_PENDING:
+    case TOPICS_LOADING:
       return state.set('pending', true)
                   .set('hasError', false);
 
@@ -30,58 +30,52 @@ function topicsReducer(state = INITIAL_STATE, action = {}) {
       return state.set('hasError', true)
                   .set('pending', false);
 
-    case MARK_INTERESTED:
-      return state.updateIn(
-        ['result', action.payload.id, 'yes'],
-        i => i.push(action.payload.userId)
-      );
-
-    case MARK_UNINTERESTED:
-      return state.updateIn(
-        ['result', action.payload.id, 'no'],
-        i => i.push(action.payload.userId)
-      );
-
     default:
       return state;
   }
 }
 
+function requestTopicsPending() {
+  return { type: TOPICS_LOADING };
+}
+
+function requestTopicsSuccess(res) {
+  return { type: REQUEST_TOPICS_SUCCESS, payload: res };
+}
+
+function requestTopicsError(err) {
+  return { type: REQUEST_TOPICS_ERROR, payload: err };
+}
+
 export function requestTopics() {
   return (dispatch, getState) => {
-    if (getState().topics.get('result').size > 0) {
-      return false;
-    }
+    dispatch(requestTopicsPending());
 
-    dispatch({ type: REQUEST_TOPICS_PENDING });
-
-    return getTopics()
-      .then(res => dispatch({ type: REQUEST_TOPICS_SUCCESS, payload: res }))
-      .then(null, () => dispatch({ type: REQUEST_TOPICS_ERROR }));
+    return topics.get()
+      .then(res => dispatch(requestTopicsSuccess(res)))
+      .then(null, err => dispatch(requestTopicsError(err)));
   };
 }
 
-export function markInterested(id) {
+export function markInterested(card) {
   return (dispatch, getState) => {
-    return dispatch({
-      type: MARK_INTERESTED,
-      payload: {
-        userId: getState().session.get('id'),
-        id,
-      },
-    });
+    dispatch(requestTopicsPending());
+
+    topics.markInterested(card)
+      .then(() => topics.get())
+      .then(res => dispatch(requestTopicsSuccess(res)))
+      .then(null, err => dispatch(requestTopicsError(err)));
   };
 }
 
-export function markUninterested(id) {
+export function markUninterested(card) {
   return (dispatch, getState) => {
-    return dispatch({
-      type: MARK_UNINTERESTED,
-      payload: {
-        userId: getState().session.get('id'),
-        id,
-      },
-    });
+    dispatch(requestTopicsPending());
+
+    topics.markUninterested(card)
+      .then(() => topics.get())
+      .then(res => dispatch(requestTopicsSuccess(res)))
+      .then(null, err => dispatch(requestTopicsError(err)));
   };
 }
 

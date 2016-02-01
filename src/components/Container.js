@@ -3,25 +3,24 @@ import classNames from 'classnames';
 
 function _renderLoading() {
   return (
-    <img src="src/assets/loading.svg" />
+    <div
+      style={ styles.loading }
+      className="flex flex-auto">
+      <img src="src/assets/loading.svg" />
+    </div>
+  );
+}
+
+function _renderChildren(children) {
+  return (
+    <div style={ styles.content }>
+      { children }
+    </div>
   );
 }
 
 const Container = ({ loading, children }) => {
-  const classes = classNames({
-    'flex': loading,
-    'flex-auto': loading,
-  });
-
-  return (
-    <div
-      style={{ ...loading ? styles.loading : {} }}
-      className={ classes }>
-      {
-        loading ? _renderLoading() : children
-      }
-    </div>
-  );
+  return loading ? _renderLoading() : _renderChildren(children)
 };
 
 Container.defaultProps = {
@@ -37,6 +36,10 @@ const styles = {
   loading: {
     height: '100%',
     justifyContent: 'center',
+  },
+  content: {
+    maxWidth: '500px',
+    margin: '0 auto',
   },
 };
 

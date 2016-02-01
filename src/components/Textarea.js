@@ -1,13 +1,12 @@
 import React, { PropTypes }  from 'react';
 
-const Textarea = ({ type, value, onChange, disabled, style }) => {
+const Textarea = ({ fieldDefinition, disabled, style }) => {
   return (
     <textarea
       style={ style }
       className="block col-12 mb1 field"
       disabled={ disabled }
-      onChange={ onChange }
-      value={ value }></textarea>
+      { ...fieldDefinition }></textarea>
   );
 };
 
@@ -19,7 +18,7 @@ Textarea.defaultProps = {
 Textarea.propTypes = {
   style: PropTypes.object,
   disabled: PropTypes.bool.isRequired,
-  onChange: PropTypes.func.isRequired,
+  fieldDefinition: PropTypes.object.isRequired,
 };
 
 export default Textarea;

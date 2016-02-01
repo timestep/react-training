@@ -1,7 +1,7 @@
 {
   "scripts": {
     "build": "jspm bundle-sfx --minify src/index",
-    "dev": "live-server",
+    "dev": "live-server --entry-file=index.html",
     "lint": "eslint  ./src"
   },
   "jspm": {

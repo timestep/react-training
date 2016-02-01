@@ -18,7 +18,6 @@ const Nav = ({ title, left, right }) => {
         <NavLink to="/">Home</NavLink>
         <NavLink to="/matches">Matches</NavLink>
         <NavLink to="/topics">Topics</NavLink>
-        <NavLink to="/sink">Sink</NavLink>
       </div>
     </div>
   );

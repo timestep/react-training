@@ -4,7 +4,7 @@ import classNames from 'classnames';
 const color = {
   info: 'bg-blue white',
   warning: 'bg-yellow black',
-  success: 'bg-green black',
+  success: 'bg-green white',
   error: 'bg-red white',
 };
 

@@ -1,24 +1,51 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
+import { Map } from 'immutable';
 import { connect } from 'react-redux';
 
-function mapStateToProps() {
-  return {};
+import { createTopic, clearSuccessMessage } from '../reducers/create';
+
+import Container from '../components/Container';
+import Alert from '../components/Alert';
+import AddTopicForm from '../components/AddTopicForm';
+
+function mapStateToProps(state) {
+  return {
+    create: state.create,
+    showSuccess: state.create.get('showSuccess')
+  };
 }
 
-function mapDispatchToProps() {
-  return {};
+function mapDispatchToProps(dispatch) {
+  return {
+    onClearSuccess: () => dispatch(clearSuccessMessage()),
+    onSubmitTopic: (val) => dispatch(createTopic(val)),
+  };
 }
 
-const Topics = () => {
+const Topics = ({ create, onClearSuccess, onSubmitTopic, showSuccess }) => {
   return (
-    <div>
-      <h1>Topics</h1>
-    </div>
+    <Container>
+      <Alert isVisible={ showSuccess } status="success">
+        Topic created successfully.
+      </Alert>
+
+      <AddTopicForm
+        onSubmit={ onSubmitTopic }
+        message={ create.get('message') }
+        isPending={ create.get('pending') }
+        hasError={ create.get('hasError') } />
+    </Container>
   );
 };
 
 Topics.defaultProps = {};
-Topics.propTypes = {};
+
+Topics.propTypes = {
+  create: PropTypes.instanceOf(Map).isRequired,
+  onSubmitTopic: PropTypes.func.isRequired,
+  showSuccess: PropTypes.bool.isRequired,
+  onClearSuccess: PropTypes.func.isRequired,
+};
 
 export default connect(
   mapStateToProps,
