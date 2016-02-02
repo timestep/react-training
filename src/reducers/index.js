@@ -1,13 +1,13 @@
 import create from './create';
 import matches from './matches';
-import modal from './modal';
+import ui from './ui';
 import session from './session';
 import topics from './topics';
 
 export {
   create,
   matches,
-  modal,
+  ui,
   session,
   topics,
 };

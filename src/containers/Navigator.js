@@ -7,16 +7,22 @@ import Content from '../components/Content';
 import LoginForm from '../components/LoginForm';
 import Modal from '../components/Modal';
 import Nav from '../components/Nav';
+import NavLink from '../components/NavLink';
 import SignupForm from '../components/SignupForm';
 
 import { login, logout, register } from '../reducers/session';
-import { changeModal } from '../reducers/modal';
+import { changeModal } from '../reducers/ui';
 
 function mapStateToProps(state) {
+  const lastViewedMatches = state.ui.get('lastViewedMatches');
+
   return {
-    currentModal: state.modal.get('visible'),
+    currentModal: state.ui.get('modalVisible'),
     isAuthenticated: state.session.get('authenticated') === true,
     session: state.session,
+    latestMatchCount: state.matches.get('result').reduce((acc, i) => {
+      return i.get('updatedAt').getTime() >= lastViewedMatches ? acc + 1 : acc;
+    }, 0),
   };
 }
 
@@ -34,6 +40,7 @@ const Navigator = (props) => {
     children,
     currentModal,
     isAuthenticated,
+    latestMatchCount,
     onChangeModal,
     onLogout,
     onSubmitLogin,
@@ -54,7 +61,11 @@ const Navigator = (props) => {
           <TextButton className="white" href onClick={ onLogout }>
             Logout
           </TextButton>
-        } />
+        }>
+        <NavLink to="/">Home</NavLink>
+        <NavLink to="/matches" count={ latestMatchCount }>Matches</NavLink>
+        <NavLink to="/topics">Topics</NavLink>
+      </Nav>
       <Content blur={ !isAuthenticated }>
         { isAuthenticated ? children : null }
       </Content>
@@ -112,6 +123,7 @@ Navigator.propTypes = {
   children: PropTypes.node.isRequired,
   currentModal: PropTypes.string.isRequired,
   isAuthenticated: PropTypes.bool.isRequired,
+  latestMatchCount: PropTypes.number.isRequired,
   onChangeModal: PropTypes.func.isRequired,
   onLogout: PropTypes.func.isRequired,
   onSubmitLogin: PropTypes.func.isRequired,

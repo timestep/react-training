@@ -1,17 +1,22 @@
 import { fromJS } from 'immutable';
 import invariant from 'invariant';
 
+import { VIEW_LATEST_MATCHES } from './matches';
+
 export const CHANGE_MODAL = '@@reactTraining/CHANGE_MODAL';
-export const HIDE_MODAL = '@@reactTraining/HIDE_MODAL';
 
 const INITIAL_STATE = fromJS({
-  visible: 'login',
+  modalVisible: 'login',
+  lastViewedMatches: null,
 });
 
 function modalReducer(state = INITIAL_STATE, action = {}) {
   switch (action.type) {
     case CHANGE_MODAL:
-      return state.set('visible', action.payload);
+      return state.set('modalVisible', action.payload);
+
+    case VIEW_LATEST_MATCHES:
+      return state.set('lastViewedMatches', Date.now());
 
     default:
       return state;

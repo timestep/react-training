@@ -30,9 +30,7 @@ export function getMatches() {
     query.find({
       success: list => {
         // Resolve only the results that have more than 1 person interested
-        const filteredList = list.filter(i => i.get('yes').length > 1);
-
-        resolve({ result: filteredList });
+        resolve({ result: list });
       },
       error: (list, err) => reject(err),
     });

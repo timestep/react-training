@@ -1,8 +1,6 @@
 import React, { PropTypes } from 'react';
 
-import NavLink from './NavLink';
-
-const Nav = ({ title, left, right }) => {
+const Nav = ({ title, left, right, children }) => {
   return (
     <div className="fixed top-0 left-0 right-0 z4 bg-blue white">
       <div
@@ -19,9 +17,7 @@ const Nav = ({ title, left, right }) => {
       <div
         style={ styles.center }
         className="flex flex-center bg-lighten-3">
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/matches">Matches</NavLink>
-        <NavLink to="/topics">Topics</NavLink>
+        { children }
       </div>
     </div>
   );
@@ -35,6 +31,7 @@ Nav.propTypes = {
   title: PropTypes.string,
   left: PropTypes.node,
   right: PropTypes.node,
+  children: PropTypes.node.isRequired,
 };
 
 const styles = {
