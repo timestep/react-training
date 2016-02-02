@@ -5,6 +5,7 @@ export const MATCHES_STOP_POLL = '@@reactTraining/MATCHES_STOP_POLL';
 export const MATCHES_PENDING = '@@reactTraining/MATCHES_PENDING';
 export const MATCHES_SUCCESS = '@@reactTraining/MATCHES_SUCCESS';
 export const MATCHES_ERROR = '@@reactTraining/MATCHES_ERROR';
+export const VIEW_LATEST_MATCHES = '@@reactTraining/VIEW_LATEST_MATCHES';
 
 const INITIAL_STATE = fromJS({
   pending: false,
@@ -44,6 +45,10 @@ function createReducer(state = INITIAL_STATE, action = {}) {
     default:
       return state;
   }
+}
+
+export function viewMatches() {
+  return { type: VIEW_LATEST_MATCHES };
 }
 
 export function matchesPending() {

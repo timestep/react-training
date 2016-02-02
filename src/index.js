@@ -1,5 +1,9 @@
+import './bootstrap';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
+
+import { fromJS } from 'immutable';
 
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
@@ -12,11 +16,11 @@ import { startMatchesPolling, stopMatchesPolling } from './reducers/matches';
 
 import thunk from 'redux-thunk';
 import sagaMiddleware from 'redux-saga';
+import persistState from 'redux-localstorage';
 import logger from './middleware/logger';
 
-import pollMatches from './sagas/pollMatches';
+import { pollMatches, updateMatches } from './sagas/pollMatches';
 
-import KitchenSink from './containers/KitchenSink';
 import Navigator from './containers/Navigator';
 import Home from './containers/Home';
 import Matches from './containers/Matches';
@@ -28,15 +32,34 @@ const reducer = combineReducers(Object.assign({}, reducers, {
   form: formReducer,
 }));
 
+// Configure localstorage
+const storageConfig = {
+  key: 'dev-match',
+  serialize: (state) => {
+    return state && state.ui ?
+      JSON.stringify({
+        ui: state.ui.toJS(),
+      }) : {};
+  },
+  deserialize: (state) => {
+    const store = JSON.parse(state);
+
+    return {
+      ui: fromJS(store.ui),
+    };
+  },
+};
+
 // Syncs route actions to the history
 const reduxRouterMiddleware = syncHistory(browserHistory);
 
 // Configure our store
 const store = compose(
+  persistState(['ui'], storageConfig),
   applyMiddleware(
     reduxRouterMiddleware,
     thunk,
-    sagaMiddleware(pollMatches),
+    sagaMiddleware(pollMatches, updateMatches),
     logger,
   ),
   window.devToolsExtension ? window.devToolsExtension() : () => {},
@@ -68,7 +91,6 @@ ReactDOM.render(
         <Route path="matches" component={ Matches }/>
         <Route path="topics" component={ Topics }/>
       </Route>
-      <Route path="sink" component={ KitchenSink }/>
     </Router>
   </Provider>,
   document.getElementById('root')

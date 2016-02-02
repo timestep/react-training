@@ -32,6 +32,7 @@ System.config({
     "react-router-redux": "npm:react-router-redux@2.1.0",
     "redux": "npm:redux@3.1.6",
     "redux-form": "npm:redux-form@4.1.6",
+    "redux-localstorage": "npm:redux-localstorage@0.4.0",
     "redux-logger": "npm:redux-logger@2.4.0",
     "redux-saga": "npm:redux-saga@0.6.0",
     "redux-thunk": "npm:redux-thunk@1.0.3",
