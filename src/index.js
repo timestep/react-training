@@ -61,12 +61,8 @@ const store = compose(
     thunk,
     sagaMiddleware(pollMatches, updateMatches),
     logger,
-  ),
-  window.devToolsExtension ? window.devToolsExtension() : () => {},
+  )
 )(createStore)(reducer, {});
-
-// Required for replaying actions from devtools to work
-reduxRouterMiddleware.listenForReplays(store);
 
 store.subscribe(() => {
   const state = store.getState();
