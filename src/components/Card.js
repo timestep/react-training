@@ -8,6 +8,7 @@ const Card = () => {
   );
 };
 
+Card.defaultName = 'Card';
 Card.propTypes = {
   // ...
 };
