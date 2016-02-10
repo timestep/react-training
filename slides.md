@@ -63,7 +63,7 @@ npm run dev
 
 ```
 function link(height = 50, color = 'red', url = 'google.com') {
-	...
+  ...
 }
 ```
 
@@ -237,7 +237,28 @@ Open `src/index.js`
 
 ---
 
-# Stateless Components
+# React Components
+## Stateful vs. Stateless Components
+
+---
+
+![left 75%](https://raw.githubusercontent.com/rangle/react-training/training-material/images/thinking-in-react-task.png)
+
+# Stateful Component
+
+- Example
+- Example
+- Example
+
+---
+
+![left 75%](https://raw.githubusercontent.com/rangle/react-training/training-material/images/thinking-in-react-task.png)
+
+# Stateless Component
+
+- Example
+- Example
+- Example
 
 ---
 
