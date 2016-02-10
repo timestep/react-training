@@ -199,7 +199,7 @@ import * as myModule from './myOtherModule';
 ![left 75%](https://raw.githubusercontent.com/rangle/react-training/training-material/images/thinking-in-react-task.png)
 
 # Task #1
-## Break Down the Mockup
+### Break Down the Mockup
 
 ---
 
@@ -238,22 +238,7 @@ Open `src/index.js`
 ---
 
 # React Components
-## Stateful vs. Stateless Components
-
----
-
-![left 75%](https://raw.githubusercontent.com/rangle/react-training/training-material/images/stateful-component.png)
-
-# Stateful Component
-
-- Internal State
-- Component Lifecycle Hooks
-
-##### Useful when...
-
-- We need to have an internal state
-- We need to perform an action when the component is mounted
-
+### Stateful vs. Stateless Components
 
 ---
 
@@ -272,7 +257,7 @@ Open `src/index.js`
 ---
 
 # Task #2
-## Create a component that renders a media object
+### Create a component that renders a media object
 
 ```
 +-----------------------------------------+
@@ -282,3 +267,41 @@ Open `src/index.js`
 |      |                                  |
 +-----------------------------------------+
 ```
+---
+
+![left 75%](https://raw.githubusercontent.com/rangle/react-training/training-material/images/stateful-component.png)
+
+# Stateful Component
+
+- Internal State
+- Component Lifecycle Hooks
+
+##### Useful when...
+
+- We need to have an internal state
+- We need to perform an action when the component is mounted
+
+---
+
+# Stateful vs. Stateless Components
+### When to choose one over the other?
+
+---
+
+# Stateful
+
+- We need internal state
+	- D3 graph
+- We need to utilize a Component Lifecycle hook
+	- Ajax request on mount	
+
+---
+
+# Stateless
+### 95% of the time
+
+---
+
+# Task 
+
+---
