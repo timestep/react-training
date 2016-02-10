@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import Card from './components/Card';
+import StatefulComponent from './components/StatefulComponent';
 
 ReactDOM.render(
-  <Card />,
+  <div>
+    <StatefulComponent />
+  </div>,
   document.getElementById('root')
 );
