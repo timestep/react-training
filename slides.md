@@ -239,6 +239,8 @@ Open `src/index.js`
 
 # Stateless Components
 
+---
+
 # Task #2
 ## Create a component that renders a media object
 
