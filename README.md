@@ -1,15 +1,11 @@
-# react-training
+# Training Material
 
-## Mockup
+> This branch contains the material required to teach the course
 
-![alt text](https://github.com/neilff/react-training/raw/master/mockup.png "Mockup")
+## slides.md
 
+Contains all the slides used to teach the course. The `/images` folder contains the images used in the slide presentation.
 
-## Getting Started
+## sketch
 
-```
-npm install
-jspm install
-
-npm run dev
-```
+This folder contains the original sketch files if you wish to modify the mockups of the project or curate them specific to the attendees of the course.
