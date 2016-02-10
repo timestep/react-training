@@ -256,17 +256,11 @@ Open `src/index.js`
 
 ---
 
+![left 75%](https://raw.githubusercontent.com/rangle/react-training/training-material/images/task-component.png)
+
 # Task #2
 ### Create a component that renders a media object
 
-```
-+-----------------------------------------+
-|      |                                  |
-| Img  |    Text                          |
-|      |    Description                   |
-|      |                                  |
-+-----------------------------------------+
-```
 ---
 
 ![left 75%](https://raw.githubusercontent.com/rangle/react-training/training-material/images/stateful-component.png)
