@@ -242,23 +242,32 @@ Open `src/index.js`
 
 ---
 
-![left 75%](https://raw.githubusercontent.com/rangle/react-training/training-material/images/thinking-in-react-task.png)
+![left 75%](https://raw.githubusercontent.com/rangle/react-training/training-material/images/stateful-component.png)
 
 # Stateful Component
 
-- Example
-- Example
-- Example
+- Internal State
+- Component Lifecycle Hooks
+
+##### Useful when...
+
+- We need to have an internal state
+- We need to perform an action when the component is mounted
+
 
 ---
 
-![left 75%](https://raw.githubusercontent.com/rangle/react-training/training-material/images/thinking-in-react-task.png)
+![left 75%](https://raw.githubusercontent.com/rangle/react-training/training-material/images/stateless-component.png)
 
 # Stateless Component
 
-- Example
-- Example
-- Example
+- Super simple
+- Given some state (as props)... return some DOM (or additional components)
+- Pure.
+
+##### Useful when...
+
+- 95% of the time
 
 ---
 
