@@ -1,11 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import StatefulComponent from './components/StatefulComponent';
+import ProfileCard from './components/ProfileCard';
 
 ReactDOM.render(
   <div>
-    <StatefulComponent />
+    <ProfileCard>
+      <h3>Jane Doe</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque nec scelerisque dolor, non aliquam dolor.</p>
+    </ProfileCard>
   </div>,
   document.getElementById('root')
 );
