@@ -174,7 +174,7 @@ import * as myModule from './myOtherModule';
 
 ---
 
-![left 300%](https://facebook.github.io/react/img/blog/thinking-in-react-mock.png)
+![left 300%](https://raw.githubusercontent.com/rangle/react-training/training-material/images/thinking-in-react-mock.png)
 
 # Start with a Mock
 
@@ -184,7 +184,7 @@ import * as myModule from './myOtherModule';
 
 ---
 
-![left 300%](https://facebook.github.io/react/img/blog/thinking-in-react-components.png)
+![left 300%](https://raw.githubusercontent.com/rangle/react-training/training-material/images/thinking-in-react-components.png)
 
 # Component Hierarchy
 
@@ -196,8 +196,23 @@ import * as myModule from './myOtherModule';
 
 ---
 
+![left 75%](https://raw.githubusercontent.com/rangle/react-training/training-material/images/thinking-in-react-task.png)
+
 # Task #1
-## Break Down the Following Mockup
+## Break Down the Mockup
+
+---
+
+![left 75%](https://raw.githubusercontent.com/rangle/react-training/training-material/images/thinking-in-react-task.png)
+
+# Answer #1
+
+- Header
+- Navigator
+- NavigatorLink
+- Content
+- ProfileCard
+- ProfileImage
 
 ---
 
@@ -206,7 +221,21 @@ import * as myModule from './myOtherModule';
 ---
 
 # React
+
+---
+
 ## Getting Started
+
+```
+git checkout 02-component
+jspm install
+```
+
+Open 
+
+---
+
+
 
 ---
 
