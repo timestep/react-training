@@ -17,7 +17,7 @@ npm run dev
 
 ---
 
-# Day 1: 
+# Day 1:
 
 - Setup (1 hr)
 - Functional JavaScript + ES6 constructs (1 hr)
@@ -229,15 +229,15 @@ import * as myModule from './myOtherModule';
 ```
 git checkout 02-component
 jspm install
+
+npm run dev
 ```
 
-Open 
+Open `src/index.js`
 
 ---
 
-
-
----
+# Stateless Components
 
 # Task #2
 ## Create a component that renders a media object
