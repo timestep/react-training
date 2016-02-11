@@ -54,8 +54,8 @@ ProfileForm.propTypes = {
   onSubmit: PropTypes.func,
 };
 ProfileForm.defaultProps = {
-  name: '',
-  description: '',
+  nameValue: '',
+  descriptionValue: '',
   onInputChange: () => {},
   onSubmit: () => {},
 };
