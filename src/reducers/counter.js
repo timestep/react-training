@@ -24,4 +24,4 @@ export function decrease() {
   return { type: DECREASE };
 }
 
-export default counterReducers
+export default counterReducer;
