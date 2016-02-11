@@ -256,10 +256,23 @@ Open `src/index.js`
 
 ---
 
-![left 75%](https://raw.githubusercontent.com/rangle/react-training/training-material/images/task-component.png)
+# Let's look at code
+
+#### `git checkout 02-component`
+#### `jspm install`
+#### `npm run dev`
+
+---
+
+![left 50%](https://raw.githubusercontent.com/rangle/react-training/training-material/images/component-task.png)
 
 # Task #2
 ### Create a component that renders a media object
+
+- Should be made up of separate components: 
+	- `<ProfileImage />`
+	- `<Card />`
+- Content for the `<Card />` should be provided as `children`
 
 ---
 
@@ -296,6 +309,10 @@ Open `src/index.js`
 
 ---
 
-# Task 
+# Task #3
+## Build a component which renders a list of profiles
+
+- Use your previously created `<Card />` component
+- Store the array of profiles in state
 
 ---
