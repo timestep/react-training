@@ -2,10 +2,10 @@ import React, { PropTypes } from 'react';
 
 import ProfileImage from './ProfileImage';
 
-const Card = ({ image, children }) => {
+const ProfileCard = ({ image, children }) => {
   return (
     <div className="flex mb2 border flex-center">
-      <ProfileImage src={ image } size="64" />
+      <ProfileImage src={ image } size={ 64 } />
 
       <div className="flex-auto">
         { children }
@@ -14,8 +14,8 @@ const Card = ({ image, children }) => {
   );
 };
 
-Card.defaultName = 'Card';
-Card.propTypes = {
+ProfileCard.defaultName = 'ProfileCard';
+ProfileCard.propTypes = {
   /**
    * The children to be rendered inside the profile card
    */
@@ -25,6 +25,6 @@ Card.propTypes = {
    */
   image: PropTypes.string,
 };
-Card.defaultProps = {};
+ProfileCard.defaultProps = {};
 
-export default Card;
+export default ProfileCard;
