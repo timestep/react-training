@@ -7,7 +7,11 @@ const Input = ({ key, type, onChange, value, placeholder }) => {
       className="block field mb2"
       style={{ minWidth: '100%' }}
       type={ type }
-      onChange={ (e) => onChange(e.target.value) }
+      onChange={ (e) => {
+        console.log('e.target.value :: ', e.target.value)
+        console.log('current value :: ', value)
+        onChange(e.target.value);
+      } }
       value={ value }
       placeholder={ placeholder } />
   );
@@ -22,7 +26,7 @@ Input.propTypes = {
   /**
    * The type of input
    */
-  type: PropTypes.string,
+  type: PropTypes.oneOf(['text', 'password']),
   /**
    * The onChange function for the input
    */

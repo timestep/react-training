@@ -67,8 +67,8 @@ class App extends Component {
         <ProfileForm
           nameValue={ name }
           descriptionValue={ description }
-          onSubmit={ () => onCreateProfile.bind(this, name, description)() }
-          onInputChange={ (id, val) => onInputChange.bind(this)(id, val) } />
+          onSubmit={ onCreateProfile.bind(this, name, description) }
+          onInputChange={ onInputChange.bind(this) } />
 
         <ProfileList
           list={ list }
