@@ -1,46 +1,30 @@
 import React, { PropTypes } from 'react';
 
-const ProfileCard = ({ src, name, topics }) => {
+import ProfileImage from './ProfileImage';
+
+const ProfileCard = ({ image, children }) => {
   return (
-    <div className="p2 border flex">
-      <img
-        src={ src }
-        style={ styles.image }
-        width="48"
-        height="48"
-        className="flex-none mr2 border" />
-      <div
-        style={ styles.text }
-        className="flex-auto flex flex-column">
-        <h3 className="p0 m0">
-          { name }
-        </h3>
-        <p className="m0">
-          { topics }
-        </p>
+    <div className="flex mb2 border flex-center">
+      <ProfileImage src={ image } size={ 64 } />
+
+      <div className="flex-auto">
+        { children }
       </div>
     </div>
   );
 };
 
+ProfileCard.defaultName = 'ProfileCard';
 ProfileCard.propTypes = {
-  src: PropTypes.string,
-  name: PropTypes.string.isRequired,
-  topics: PropTypes.string,
+  /**
+   * The children to be rendered inside the profile card
+   */
+  children: PropTypes.node,
+  /**
+   * The source of the image
+   */
+  image: PropTypes.string,
 };
-ProfileCard.defaultProps = {
-  src: 'src/assets/placeholder.svg',
-  topics: '',
-};
-
-const styles = {
-  image: {
-    padding: '3px',
-    borderRadius: '50%',
-  },
-  text: {
-    justifyContent: 'center',
-  },
-};
+ProfileCard.defaultProps = {};
 
 export default ProfileCard;

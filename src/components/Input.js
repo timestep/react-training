@@ -1,28 +1,46 @@
-import React, { PropTypes }  from 'react';
+import React, { PropTypes } from 'react';
 
-const Input = ({ type, value, onChange, disabled, style }) => {
+const Input = ({ key, type, onChange, value, placeholder }) => {
   return (
     <input
+      id={ key }
+      className="block field mb2"
+      style={{ minWidth: '100%' }}
       type={ type }
-      style={ style }
-      className="block col-12 mb1 field"
-      disabled={ disabled }
-      onChange={ onChange }
-      value={ value } />
+      onChange={ (e) => onChange(e.target.value) }
+      value={ value }
+      placeholder={ placeholder } />
   );
 };
 
+Input.defaultName = 'Input';
+Input.propTypes = {
+  /**
+   * The property key the input will pass to the onChange function
+   */
+  key: PropTypes.string,
+  /**
+   * The type of input
+   */
+  type: PropTypes.string,
+  /**
+   * The onChange function for the input
+   */
+  onChange: PropTypes.func,
+  /**
+   * The current value of the input
+   */
+  value: PropTypes.string,
+  /**
+   * The placeholder value for the input
+   */
+  placeholder: PropTypes.string,
+};
 Input.defaultProps = {
   type: 'text',
-  disabled: false,
-  style: {},
-};
-
-Input.propTypes = {
-  style: PropTypes.object,
-  type: PropTypes.string.isRequired,
-  disabled: PropTypes.bool.isRequired,
-  onChange: PropTypes.func.isRequired,
+  onChange: () => {},
+  value: '',
+  placeholder: '',
 };
 
 export default Input;

@@ -1,41 +1,46 @@
 import React, { PropTypes } from 'react';
-import classNames from 'classnames';
 
-const Button = (props) => {
-  const {
-    children,
-    onClick,
-    disabled,
-    type,
-    className,
-  } = props;
+const buttonStatus = {
+  success: 'bg-green',
+  warning: 'bg-orange',
+  primary: 'bg-blue',
+  danger: 'bg-red'
+}
 
-  const classes = classNames('btn', 'btn-primary', className);
-
+const Button = ({ type, onClick, status, children }) => {
   return (
     <button
-      disabled={ disabled }
-      onClick={ onClick }
       type={ type }
-      className={ classes }>
+      onClick={ onClick }
+      className={ `btn btn-primary white ${ buttonStatus[status] }` }>
       { children }
     </button>
   );
 };
 
+Button.defaultName = 'Button';
 Button.propTypes = {
-  children: PropTypes.node.isRequired,
+  /**
+   * The content of the button
+   */
+  children: PropTypes.node,
+  /**
+   * The type of button
+   */
+  type: PropTypes.oneOf(['button', 'reset', 'submit']),
+  /**
+   * The status of type of the button
+   */
+  status: PropTypes.oneOf(['success', 'warning', 'primary', 'danger']),
+  /**
+   * The onClick function of the button
+   */
   onClick: PropTypes.func,
-  disabled: PropTypes.bool,
-  type: PropTypes.oneOf(['button', 'submit', 'reset']),
-  className: PropTypes.string,
 };
-
 Button.defaultProps = {
+  type: 'submit',
   onClick: () => {},
-  disabled: false,
-  type: 'button',
-  className: ''
+  status: 'primary',
 };
 
 export default Button;

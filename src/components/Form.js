@@ -1,26 +1,27 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 
-const Form = ({ children, onSubmit, style, className }) => {
+const Form = ({ onSubmit, children }) => {
   return (
     <form
-      style={ style }
-      className={ `${ className } p2` }
-      onSubmit={ onSubmit }>
+      className="p2 mb2 border"
+      onSubmit={(e) => {
+        e.preventDefault();
+        onSubmit();
+      }}>
       { children }
     </form>
   );
 };
 
-Form.defaultProps = {
-  className: '',
-  style: {},
-};
-
+Form.defaultName = 'Form';
 Form.propTypes = {
-  children: PropTypes.node.isRequired,
-  className: PropTypes.string,
-  onSubmit: PropTypes.func.isRequired,
-  style: PropTypes.object,
+  /**
+   * onSubmit handler for the form
+   */
+  onSubmit: PropTypes.func,
+};
+Form.defaultProps = {
+  onSubmit: () => {},
 };
 
 export default Form;

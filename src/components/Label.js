@@ -1,15 +1,26 @@
 import React, { PropTypes } from 'react';
 
-const Label = ({ children }) => {
+const Label = ({ key, children }) => {
   return (
-    <label className="bold">{ children }</label>
+    <label className="bold mb1" htmlFor={ key }>
+      { children }
+    </label>
   );
 };
 
-Label.defaultProps = {};
-
+Label.defaultName = 'Label';
 Label.propTypes = {
-  children: PropTypes.node.isRequired,
+  /**
+   * The children to be rendered by label
+   */
+  children: PropTypes.node,
+  /**
+   * The key for the label to target
+   */
+  key: PropTypes.string,
+};
+Label.defaultProps = {
+  key: '',
 };
 
 export default Label;
