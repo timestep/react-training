@@ -313,6 +313,37 @@ Open `src/index.js`
 ## Build a component which renders a list of profiles
 
 - Use your previously created `<Card />` component
+- Create a new stateful `<CardList />` component
 - Store the array of profiles in state
 
+```
+[
+  {
+  	id: 1,
+  	name: 'Jane React',
+  	description: 'Coolest person alive'
+  },
+  ...
+]
+```
+
 ---
+
+# Task #4
+## Add a delete button to each profile
+
+- The delete button should remove an item from the array
+- Please use `Array().filter`
+
+---
+
+# Task #5
+## Add the ability to add a profile to the list
+
+- Will require moving the state out of `<ProfileList />`
+- Create a new container component called `<App />` which stores the state
+- Don't forget to breakdown components!
+ 	- Label
+	- Input
+	- Form
+	- ProfileForm
