@@ -442,6 +442,20 @@ Open `src/index.js`
 
 ---
 
+# Task #6
+### Add your own profile to the end of the list
+
+^ Example of `update` with `push`
+
+---
+
+# Task #7
+### Change the name of the first person to Marty Robbins
+
+^ Example of using a `updateIn`
+
+---
+
 # Redux
 
 ---
@@ -540,6 +554,16 @@ function profileReducer(state = {}, action = {}) {
 ### `npm run dev`
 
 --- 
+
+# Task #6
+
+#### Rewrite the previous Profile Creator app in Redux
+
+- Create a `profileReducer`
+- Use Immutable to store your state
+- Expand the reducer and its actions to `Create` and `Delete` entries
+
+---
 
 # Middleware
 
