@@ -12,7 +12,7 @@ import App from './containers/App';
 
 ReactDOM.render(
   <Provider store={ store }>
-    <KitchenSink />
+    <App />
   </Provider>,
   document.getElementById('root')
 );

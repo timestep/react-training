@@ -1,5 +1,5 @@
-import modal from './modal';
+import counter from './counter';
 
 export {
-  modal,
+  counter,
 };
