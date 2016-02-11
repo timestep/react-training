@@ -39,7 +39,7 @@ npm run dev
 - What web components are
 - How to build React components
 - Build the components required to construct our views
-- The kitchen sink
+- A simple "todo list"
 
 ---
 
@@ -310,7 +310,7 @@ Open `src/index.js`
 ---
 
 # Task #3
-## Build a component which renders a list of profiles
+### Build a component which renders a list of profiles
 
 - Use your previously created `<Card />` component
 - Create a new stateful `<CardList />` component
@@ -330,7 +330,7 @@ Open `src/index.js`
 ---
 
 # Task #4
-## Add a delete button to each profile
+### Add a delete button to each profile
 
 - The delete button should remove an item from the array
 - Please use `Array().filter`
@@ -338,7 +338,7 @@ Open `src/index.js`
 ---
 
 # Task #5
-## Add the ability to add a profile to the list
+### Add the ability to add a profile to the list
 
 - Will require moving the state out of `<ProfileList />`
 - Create a new container component called `<App />` which stores the state
@@ -347,3 +347,226 @@ Open `src/index.js`
 	- Input
 	- Form
 	- ProfileForm
+
+---
+
+# Day 1 Recap
+
+- How to think in components
+	- Breaking down an interface
+	- Think in small composable components
+- Learned React
+	- Stateful and Stateless Components
+	- Defining interfaces that make sense
+	- Composed small components to make larger components 
+	
+---
+
+# Questions?	
+
+---
+
+# Day 2: Redux
+
+---
+
+# Goal for Today
+
+- Why Immutable.js is important and how to user it
+- How and where to store state in a React application
+- How to handle async code
+- How to setup routing
+
+---
+
+# Immutable.js
+
+---
+
+# What is Immutable Data?
+
+- A collection of data
+- Once created, cannot be changed
+- No defensive copying (*cough* `R.clone` *cough*, `angular.copy` *cough*)
+- Advanced memoization
+- Always yields new data!
+
+---
+
+# Immutable.js API
+
+### List, Map, Set... and many more...
+
+---
+
+# Let's try it out
+
+##### `http://neilff.github.io/immutable-repl`
+
+^ Use `http://beta.json-generator.com/` to generate data
+
+---
+
+# Task #1
+### Give me a list of the names of people
+
+^ Example of using `get`
+
+---
+
+# Task #2
+### Give me a list of the last names
+
+^ Example of using `getIn`
+
+---
+
+# Task #3
+### Give me the last name of the last person
+
+^ Example of using `last` and `getIn`
+
+---
+
+# Task #4 
+### The users with brown eyes
+
+^ Example of using a `filter`
+
+---
+
+# Task #5
+### A Map of the eye colors to count of people with that color
+
+^ Example of using a `reduce`
+
+---
+
+# Redux
+
+---
+
+# Overview 
+
+- Application architecture
+- Avoids pitfalls of MVC
+- Global application state
+- One way data flow
+- Actions, Reducers, Store, View
+
+---
+
+![300%](http://i.kinja-img.com/gawker-media/image/upload/o3dgbksfdn7w8fzauk6p.png)
+
+---
+
+![75%](https://facebook.github.io/flux/img/flux-simple-f8-diagram-with-client-action-1300w.png)
+
+---
+
+# Actions
+
+- Describes how we want to modify the state
+- For example, `ADD_PROFILE`
+- Created by ActionCreators
+
+---
+
+# Action Creator
+
+```
+function createNewProfile(username, description) {
+  return {
+    type: 'ADD_PROFILE',
+    payload: { username, password },
+  };
+}
+```
+---
+
+# Reducers
+
+- Receive actions, and modify the state
+- Resposible for slices of the state
+- Return a _new_ copy of the state after an action
+
+---
+
+# Profile Reducer
+
+```
+function profileReducer(state = {}, action = {}) {
+  switch(action.type) {
+    case ADD_PROFILE:
+      return state.updateIn(['data'], i => i.push(action.payload));
+
+    case DELETE_PROFILE:
+      return state.updateIn(
+        ['data'], 
+        list => list.filter(i => i.id !== action.payload.id)
+      );
+     
+    ...
+
+    default:
+      return state;
+  }
+}
+```
+
+---
+
+# Store
+
+- Global application state
+- Single source of truth for the entire app
+- Immutable (via Immutable.js)
+- Connect Components to the store via. `react-redux`
+
+---
+
+# View
+
+- React views
+- Smart components vs. Dumb components
+- Uses `react-redux` to connect to the Store and retrieve data
+
+---
+
+# Code Time
+
+### `git checkout 04-redux`
+### `jspm install`
+### `npm run dev`
+
+--- 
+
+# Middleware
+
+- Intercept actions before being dispatched
+- Redux Logger
+- Redux Thunk
+- Async
+
+---
+
+# Redux Form
+
+- Abstraction for persisting data in the store
+- Easier than doing by hand
+- Provides 
+
+--- 
+
+# Fetch
+
+--- 
+
+# Day 2 Recap
+
+- How to work with Immutable data
+- Redux
+
+---
+
+# Questions
