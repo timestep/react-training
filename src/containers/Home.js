@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import CreateTopicForm from '../components/CreateTopicForm';
+
 function mapStateToProps() {
   return {};
 }
@@ -12,7 +14,7 @@ function mapDispatchToProps() {
 const Home = () => {
   return (
     <div>
-      <h1>Home</h1>
+      <CreateTopicForm />
     </div>
   );
 };

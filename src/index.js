@@ -7,6 +7,7 @@ import { Router, Route, browserHistory, IndexRoute } from 'react-router'
 import { syncHistory, routeReducer } from 'react-router-redux'
 
 import * as reducers from './reducers/index';
+import { reducer as formReducer } from 'redux-form';
 
 import thunk from 'redux-thunk';
 import logger from './middleware/logger';
@@ -19,7 +20,8 @@ import Topics from './containers/Topics';
 
 // Configure our reducer
 const reducer = combineReducers(Object.assign({}, reducers, {
-  routing: routeReducer
+  routing: routeReducer,
+  form: formReducer,
 }));
 
 // Syncs route actions to the history

@@ -1,6 +1,6 @@
 import React, { PropTypes }  from 'react';
 
-const Input = ({ type, value, onChange, disabled, style }) => {
+const Input = ({ type, value, onChange, disabled, style, fieldDefinition }) => {
   return (
     <input
       type={ type }
@@ -8,7 +8,8 @@ const Input = ({ type, value, onChange, disabled, style }) => {
       className="block col-12 mb1 field"
       disabled={ disabled }
       onChange={ onChange }
-      value={ value } />
+      value={ value }
+      { ...fieldDefinition } />
   );
 };
 

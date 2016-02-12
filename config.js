@@ -24,10 +24,11 @@ System.config({
     "jsonp": "npm:jsonp@0.2.0",
     "react": "npm:react@0.14.7",
     "react-dom": "npm:react-dom@0.14.6",
-    "react-redux": "npm:react-redux@4.1.2",
+    "react-redux": "npm:react-redux@4.4.0",
     "react-router": "npm:react-router@2.0.0-rc5",
     "react-router-redux": "npm:react-router-redux@2.1.0",
-    "redux": "npm:redux@3.1.5",
+    "redux": "npm:redux@3.3.1",
+    "redux-form": "npm:redux-form@4.1.13",
     "redux-logger": "npm:redux-logger@2.4.0",
     "redux-thunk": "npm:redux-thunk@1.0.3",
     "github:jspm/nodelibs-assert@0.1.0": {
@@ -356,6 +357,10 @@ System.config({
     "npm:jsonp@0.2.0": {
       "debug": "npm:debug@2.1.3"
     },
+    "npm:lodash@4.3.0": {
+      "buffer": "github:jspm/nodelibs-buffer@0.1.0",
+      "process": "github:jspm/nodelibs-process@0.1.2"
+    },
     "npm:loose-envify@1.1.0": {
       "js-tokens": "npm:js-tokens@1.0.2",
       "process": "github:jspm/nodelibs-process@0.1.2",
@@ -413,13 +418,17 @@ System.config({
     "npm:react-dom@0.14.6": {
       "react": "npm:react@0.14.7"
     },
-    "npm:react-redux@4.1.2": {
-      "hoist-non-react-statics": "npm:hoist-non-react-statics@1.0.3",
+    "npm:react-lazy-cache@3.0.1": {
+      "deep-equal": "npm:deep-equal@1.0.1"
+    },
+    "npm:react-redux@4.4.0": {
+      "hoist-non-react-statics": "npm:hoist-non-react-statics@1.0.5",
       "invariant": "npm:invariant@2.2.0",
+      "lodash": "npm:lodash@4.3.0",
       "loose-envify": "npm:loose-envify@1.1.0",
       "process": "github:jspm/nodelibs-process@0.1.2",
       "react": "npm:react@0.14.7",
-      "redux": "npm:redux@3.1.5"
+      "redux": "npm:redux@3.3.1"
     },
     "npm:react-router@2.0.0-rc5": {
       "child_process": "github:jspm/nodelibs-child_process@0.1.0",
@@ -443,7 +452,18 @@ System.config({
       "stream-browserify": "npm:stream-browserify@1.0.0",
       "string_decoder": "npm:string_decoder@0.10.31"
     },
-    "npm:redux@3.1.5": {
+    "npm:redux-form@4.1.13": {
+      "deep-equal": "npm:deep-equal@1.0.1",
+      "hoist-non-react-statics": "npm:hoist-non-react-statics@1.0.5",
+      "is-promise": "npm:is-promise@2.1.0",
+      "process": "github:jspm/nodelibs-process@0.1.2",
+      "react-lazy-cache": "npm:react-lazy-cache@3.0.1",
+      "react-redux": "npm:react-redux@4.4.0",
+      "redux": "npm:redux@3.3.1"
+    },
+    "npm:redux@3.3.1": {
+      "lodash": "npm:lodash@4.3.0",
+      "lodash-es": "npm:lodash-es@4.3.0",
       "loose-envify": "npm:loose-envify@1.1.0",
       "process": "github:jspm/nodelibs-process@0.1.2"
     },

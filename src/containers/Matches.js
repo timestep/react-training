@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 function mapStateToProps() {
@@ -9,13 +9,15 @@ function mapDispatchToProps() {
   return {};
 }
 
-const Matches = () => {
-  return (
-    <div>
-      <h1>Matches</h1>
-    </div>
-  );
-};
+class Matches extends Component {
+  render() {
+    return (
+      <div>
+        <h1>Matches</h1>
+      </div>
+    );
+  }
+}
 
 Matches.defaultProps = {};
 Matches.propTypes = {};
