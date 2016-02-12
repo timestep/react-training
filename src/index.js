@@ -32,7 +32,6 @@ const store = compose(
     thunk,
     logger,
   ),
-  window.devToolsExtension ? window.devToolsExtension() : () => {},
 )(createStore)(reducer, {});
 
 // Required for replaying actions from devtools to work
