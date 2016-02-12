@@ -9,6 +9,7 @@ slidenumbers: true
 ```
 git clone https://github.com/rangle/react-training
 
+npm install -g jspm
 npm install
 jspm install
 
@@ -327,6 +328,9 @@ Open `src/index.js`
 ]
 ```
 
+^ Bonus task:
+- Add a counter that lists the amount of people in the list
+
 ---
 
 # Task #4
@@ -334,6 +338,9 @@ Open `src/index.js`
 
 - The delete button should remove an item from the array
 - Please use `Array().filter`
+
+^ Bonus task:
+- Add a checkbox to each item in the list, allow a user to clear all selected items
 
 ---
 
@@ -343,10 +350,10 @@ Open `src/index.js`
 - Will require moving the state out of `<ProfileList />`
 - Create a new container component called `<App />` which stores the state
 - Don't forget to breakdown components!
- 	- Label
-	- Input
-	- Form
-	- ProfileForm
+	- Label, Input, Form, ProfileForm
+	
+^ Bonus task:
+- Add ability to inline-edit each item
 
 ---
 
@@ -366,7 +373,7 @@ Open `src/index.js`
 
 ---
 
-# Day 2: Redux
+# Day 2: Redux & Immutable.js
 
 ---
 
@@ -438,6 +445,14 @@ Open `src/index.js`
 # Task #5
 ### A Map of the eye colors to count of people with that color
 
+```
+{
+	"brown": 10,
+	"green": 5,
+	...
+}
+```
+
 ^ Example of using a `reduce`
 
 ---
@@ -481,6 +496,8 @@ Open `src/index.js`
 # Actions
 
 - Describes how we want to modify the state
+- User interaction
+	- Click, submit, entering text on a form, etc.
 - For example, `ADD_PROFILE`
 - Created by ActionCreators
 
@@ -536,6 +553,7 @@ function profileReducer(state = {}, action = {}) {
 - Single source of truth for the entire app
 - Immutable (via Immutable.js)
 - Connect Components to the store via. `react-redux`
+- Takes several `reducers` and combines them to create a single large reducer
 
 ---
 
@@ -544,6 +562,12 @@ function profileReducer(state = {}, action = {}) {
 - React views
 - Smart components vs. Dumb components
 - Uses `react-redux` to connect to the Store and retrieve data
+
+--- 
+
+# Example Time
+### `shape-insights`
+
 
 ---
 
