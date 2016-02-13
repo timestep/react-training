@@ -1,3 +1,5 @@
+import './bootstrap';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -34,6 +36,9 @@ const store = compose(
     thunk,
     logger,
   ),
+  window.devToolsExtension ?
+    window.devToolsExtension() :
+    f => f,
 )(createStore)(reducer, {});
 
 // Required for replaying actions from devtools to work

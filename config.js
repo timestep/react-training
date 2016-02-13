@@ -22,6 +22,7 @@ System.config({
     "core-js": "npm:core-js@1.2.6",
     "immutable": "npm:immutable@3.7.6",
     "jsonp": "npm:jsonp@0.2.0",
+    "parse": "npm:parse@1.7.0",
     "react": "npm:react@0.14.7",
     "react-dom": "npm:react-dom@0.14.6",
     "react-redux": "npm:react-redux@4.4.0",
@@ -379,6 +380,10 @@ System.config({
       "evp_bytestokey": "npm:evp_bytestokey@1.0.0",
       "pbkdf2": "npm:pbkdf2@3.0.4",
       "systemjs-json": "github:systemjs/plugin-json@0.1.0"
+    },
+    "npm:parse@1.7.0": {
+      "babel-runtime": "npm:babel-runtime@5.8.35",
+      "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:path-browserify@0.0.0": {
       "process": "github:jspm/nodelibs-process@0.1.2"

@@ -17,7 +17,7 @@ const CreateTopicForm = (props) => {
   } = props;
 
   return (
-    <Form onSubmit={ () => {} }>
+    <Form handleSubmit={ handleSubmit }>
       <Label>Title</Label>
       <Input fieldDefinition={ title }/>
 

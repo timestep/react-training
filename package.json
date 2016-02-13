@@ -9,6 +9,7 @@
       "basscss": "npm:basscss@^7.1.0",
       "classnames": "npm:classnames@^2.2.3",
       "immutable": "npm:immutable@^3.7.6",
+      "parse": "npm:parse@^1.7.0",
       "react": "npm:react@^0.14.6",
       "react-dom": "npm:react-dom@^0.14.6",
       "react-redux": "npm:react-redux@^4.1.2",
