@@ -506,38 +506,7 @@ Open `src/index.js`
 
 ---
 
-# Flux
-
----
-
-# Overview 
-
-- Application architecture
-- Variation of Flux
-- Not just for React
-- Avoids pitfalls of MVC
-- Global application state
-- One way data flow
-
----
-
-![left 200%](https://raw.githubusercontent.com/rangle/react-training/training-material/images/mvc.png)
-
-# MVC Pitfalls 
-
-- Communication amongst multiple components
-- Cascading effects
-- Difficult to reason about
-- Tangled mess at scale
-
----
-
-![75%](https://raw.githubusercontent.com/rangle/react-training/training-material/images/flux.png)
-
----
-
 # Redux
-### Why???
 
 ---
 
@@ -550,6 +519,10 @@ Open `src/index.js`
 ### Server side responses, cached data, local data, routers, spinners, etc. etc. etc
 
 ^ Demands of frontend is way beyond what it was in the past
+
+---
+
+![300%](https://raw.githubusercontent.com/rangle/react-training/training-material/images/mvc.png)
 
 ---
 
@@ -600,11 +573,15 @@ Open `src/index.js`
 ---
 
 # Redux
-## Make state mutations _PREDICTABLE_
+### Makes state mutations _PREDICTABLE_
 
 ---
 
 # Three Principles of Redux
+
+### Single Source of Truth
+### State is Read Only
+### Changes are made with Pure Functions
 
 ---
 
@@ -634,10 +611,8 @@ Open `src/index.js`
 	- Pure functions
 	- Take in previous state, and action, and return new state
 	- Can be split out into smaller reducers to manage specific parts of state tree
-
----
-
-# That's it!
+	
+^ Same input results in same output
 
 ---
 
@@ -669,9 +644,10 @@ function createNewProfile(username, description) {
 
 # Reducers
 
-- Receive actions, and modify the state
+- Receive the current state, and an action
+- Returns the modified state
 - Resposible for slices of the state
-- Return a _new_ copy of the state after an action
+- Can be made up of one, or many
 
 ---
 
@@ -703,7 +679,6 @@ function profileReducer(state = {}, action = {}) {
 
 - Global application state
 - Single source of truth for the entire app
-- Immutable (via Immutable.js)
 - Connect Components to the store via. `react-redux`
 - Takes several `reducers` and combines them to create a single large reducer
 
@@ -718,7 +693,6 @@ function profileReducer(state = {}, action = {}) {
 --- 
 
 # Example Time
-### `shape-insights`
 
 ---
 
@@ -741,11 +715,6 @@ function profileReducer(state = {}, action = {}) {
 
 # Task #7
 #### Add the ability to `delete` an entry
-
----
-
-# Task #8
-#### Add the ability to `create` an entry
 
 ---
 
@@ -774,6 +743,13 @@ function profileReducer(state = {}, action = {}) {
 	- Generic CRUD forms
 
 --- 
+
+# Task #8
+#### Add the ability to `create` an entry
+
+- Use `react-formal` to manage your forms using local state
+
+---
 
 # Middleware
 
@@ -804,7 +780,17 @@ function createNewProfile(username, description) {
 
 ---
 
-# Async Operations
+# Task #9
+#### Retrieve items from the server
+
+- Previously it was hard coded at application start
+- Use our Parse service to read data from the backend
+- Use `redux-thunk` to perform async actions
+
+---
+
+# Task #10
+#### Add items to the server
 
 ---
 
