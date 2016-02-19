@@ -298,7 +298,17 @@ Open `src/index.js`
 - Build small components that together build larger components, screens
 - Composition is key!
 
+---
+
+![left 75%](https://raw.githubusercontent.com/rangle/react-training/training-material/images/lego-plane.png)
+
+# Composition
+
+- We compose these bricks to build larger things
+
 ```
+// LoginForm.js
+
 <Form>
   <FormGroup>
     <Label>Username</Label>
@@ -311,10 +321,6 @@ Open `src/index.js`
   <Button>Submit</Button>
 </Form>
 ```
-
----
-
-
 
 ---
 
