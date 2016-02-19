@@ -510,7 +510,7 @@ Open `src/index.js`
 
 ---
 
-![75%](https://facebook.github.io/flux/img/flux-simple-f8-diagram-with-client-action-1300w.png)
+![75%](https://raw.githubusercontent.com/rangle/react-training/training-material/images/redux.png)
 
 ---
 
@@ -524,11 +524,11 @@ Open `src/index.js`
 
 ---
 
-![300%](http://i.kinja-img.com/gawker-media/image/upload/o3dgbksfdn7w8fzauk6p.png)
+![300%](https://raw.githubusercontent.com/rangle/react-training/training-material/images/mvc.png)
 
 ---
 
-![75%](https://facebook.github.io/flux/img/flux-simple-f8-diagram-with-client-action-1300w.png)
+![75%](https://raw.githubusercontent.com/rangle/react-training/training-material/images/flux.png)
 
 ---
 
