@@ -296,7 +296,25 @@ Open `src/index.js`
 
 - Think of them as Lego bricks
 - Build small components that together build larger components, screens
-- Composition
+- Composition is key!
+
+```
+<Form>
+  <FormGroup>
+    <Label>Username</Label>
+    <Input name="username" />
+    
+    <Label>Password</Label>
+    <Input name="password" />
+  </FormGroup>
+  
+  <Button>Submit</Button>
+</Form>
+```
+
+---
+
+
 
 ---
 
