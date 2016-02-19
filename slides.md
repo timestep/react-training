@@ -257,26 +257,6 @@ Open `src/index.js`
 
 ---
 
-# Let's look at code
-
-#### `git checkout 02-component`
-#### `jspm install`
-#### `npm run dev`
-
----
-
-![left 50%](https://raw.githubusercontent.com/rangle/react-training/training-material/images/component-task.png)
-
-# Task #2
-### Create a component that renders a media object
-
-- Should be made up of separate components: 
-	- `<ProfileImage />`
-	- `<Card />`
-- Content for the `<Card />` should be provided as `children`
-
----
-
 ![left 75%](https://raw.githubusercontent.com/rangle/react-training/training-material/images/stateful-component.png)
 
 # Stateful Component
@@ -307,6 +287,36 @@ Open `src/index.js`
 
 # Stateless
 ### 95% of the time
+
+---
+
+![left 50%](https://raw.githubusercontent.com/rangle/react-training/training-material/images/lego-bricks.png)
+
+# Components are Bricks
+
+- Think of them as Lego bricks
+- Build small components that together build larger components, screens
+- Composition
+
+---
+
+# Let's look at code
+
+#### `git checkout 02-component`
+#### `jspm install`
+#### `npm run dev`
+
+---
+
+![left 50%](https://raw.githubusercontent.com/rangle/react-training/training-material/images/component-task.png)
+
+# Task #2
+### Create a component that renders a media object
+
+- Should be made up of separate components: 
+	- `<ProfileImage />`
+	- `<Card />`
+- Content for the `<Card></Card>` should be provided as `children`
 
 ---
 
@@ -363,6 +373,7 @@ Open `src/index.js`
 	- Breaking down an interface
 	- Think in small composable components
 - Learned React
+	- React is simple	
 	- Stateful and Stateless Components
 	- Defining interfaces that make sense
 	- Composed small components to make larger components 
