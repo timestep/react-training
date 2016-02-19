@@ -510,6 +510,10 @@ Open `src/index.js`
 
 ---
 
+![75%](https://facebook.github.io/flux/img/flux-simple-f8-diagram-with-client-action-1300w.png)
+
+---
+
 # Overview 
 
 - Application architecture
