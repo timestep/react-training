@@ -11,7 +11,7 @@ const Row = ({ children }) => {
 Row.defaultProps = {};
 
 Row.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
 };
 
 export default Row;

@@ -16,8 +16,8 @@ const NavLink = ({ children, to }) => {
 NavLink.defaultProps = {};
 
 NavLink.propTypes = {
-  to: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired,
+  to: PropTypes.string,
+  children: PropTypes.node,
 };
 
 const styles = {

@@ -24,9 +24,9 @@ Modal.defaultProps = {
 };
 
 Modal.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
   onClick: PropTypes.func,
-  isVisible: PropTypes.bool.isRequired,
+  isVisible: PropTypes.bool,
 };
 
 const styles = {

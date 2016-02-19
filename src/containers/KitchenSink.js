@@ -7,9 +7,6 @@ import Button from '../components/Button';
 import Card from '../components/Card';
 import Content from '../components/Content';
 import Debug from '../components/Debug';
-import Form from '../components/Form';
-import Input from '../components/Input';
-import Label from '../components/Label';
 import Modal from '../components/Modal';
 import Nav from '../components/Nav';
 import ProfileCard from '../components/ProfileCard';
@@ -78,33 +75,6 @@ const KitchenSink = (props) => {
             <Button className="m1">Info</Button>
             <Button className="bg-green m1 rounded">+</Button>
             <Button className="bg-red m1 rounded">-</Button>
-          </div>
-        </div>
-
-        <div className="clearfix mb2">
-          <div className="col col-12">
-            <h2>Forms</h2>
-            <hr />
-          </div>
-          <div className="col col-12">
-            <Form
-              className="sm-col-4"
-              onSubmit={ (e) => {
-                e.preventDefault();
-                console.log('Submit Form');
-              }}>
-
-              <h2>Form</h2>
-
-              <Label>Input</Label>
-              <Input onChange={ () => {} } />
-
-              <Label>Textarea</Label>
-              <Textarea onChange={ () => {} } />
-
-              <Button type="submit">Sign In</Button>
-              <Button type="reset" className="black bg-gray m2">Cancel</Button>
-            </Form>
           </div>
         </div>
 

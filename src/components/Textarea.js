@@ -18,8 +18,8 @@ Textarea.defaultProps = {
 
 Textarea.propTypes = {
   style: PropTypes.object,
-  disabled: PropTypes.bool.isRequired,
-  onChange: PropTypes.func.isRequired,
+  disabled: PropTypes.bool,
+  onChange: PropTypes.func,
 };
 
 export default Textarea;

@@ -13,7 +13,7 @@ Column.defaultProps = {
 };
 
 Column.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
   className: PropTypes.string,
 };
 

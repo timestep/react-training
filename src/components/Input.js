@@ -21,9 +21,9 @@ Input.defaultProps = {
 
 Input.propTypes = {
   style: PropTypes.object,
-  type: PropTypes.string.isRequired,
-  disabled: PropTypes.bool.isRequired,
-  onChange: PropTypes.func.isRequired,
+  type: PropTypes.string,
+  disabled: PropTypes.bool,
+  onChange: PropTypes.func,
 };
 
 export default Input;

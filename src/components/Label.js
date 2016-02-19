@@ -9,7 +9,7 @@ const Label = ({ children }) => {
 Label.defaultProps = {};
 
 Label.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
 };
 
 export default Label;

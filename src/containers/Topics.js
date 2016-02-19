@@ -1,18 +1,24 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import { createTopic } from '../reducers/topics';
+
+import CreateTopicForm from '../components/CreateTopicForm';
+
 function mapStateToProps() {
   return {};
 }
 
-function mapDispatchToProps() {
-  return {};
+function mapDispatchToProps(dispatch) {
+  return {
+    onCreateTopic: (val) => dispatch(createTopic(val)),
+  };
 }
 
-const Topics = () => {
+const Topics = ({ onCreateTopic }) => {
   return (
-    <div>
-      <h1>Topics</h1>
+    <div className="p2 container">
+      <CreateTopicForm onSubmit={ onCreateTopic }/>
     </div>
   );
 };

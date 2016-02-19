@@ -1,39 +1,63 @@
-import React from 'react';
-import { reduxForm } from 'redux-form';
+import React, { Component } from 'react';
+import Form from 'react-formal';
+import yup from 'yup';
 
 import Label from './Label';
-import Form from './Form';
 import Button from './Button';
-import Input from './Input';
 
-const CreateTopicForm = (props) => {
-  const {
-    fields: {
-      title,
-      description,
-    },
-    handleSubmit,
-    resetForm,
-  } = props;
+const modelSchema =  yup.object({
+  title: yup.string().required('Name is required'),
+  description: yup.string().required('Description is required')
+});
 
-  return (
-    <Form handleSubmit={ handleSubmit }>
-      <Label>Title</Label>
-      <Input fieldDefinition={ title }/>
+class CreateTopicForm extends Component {
+  constructor() {
+    super();
 
-      <Label>Description</Label>
-      <Input fieldDefinition={ description }/>
+    this.state = {
+      model: {
+        title: '',
+        description: '',
+      },
+    };
+  }
 
-      <Button type="submit">Submit</Button>
-    </Form>
-  );
+  render() {
+    return (
+      <Form
+        schema={ modelSchema }
+        value={ this.state.model }
+        onChange={ model => this.setState({ model }) }
+        onSubmit={ () => this.props.onSubmit(this.state.model) }>
+
+        <div className="mb2">
+          <Label>Title</Label>
+          <Form.Field
+            className="field block"
+            name="title" />
+          <Form.Message
+            className="block"
+            for="title"/>
+        </div>
+
+        <div className="mb2">
+          <Label>Description</Label>
+          <Form.Field
+            className="field block"
+            name="description" />
+          <Form.Message
+            className="block"
+            for="description"/>
+        </div>
+
+        <Button type="submit">Submit</Button>
+      </Form>
+    );
+  }
 }
 
 CreateTopicForm.defaultName = 'CreateTopicForm';
 CreateTopicForm.defaultProps = {};
 CreateTopicForm.propTypes = {};
 
-export default reduxForm({
-  form: 'createTopic',
-  fields: ['title', 'description'],
-})(CreateTopicForm);
+export default CreateTopicForm;
