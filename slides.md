@@ -506,29 +506,142 @@ Open `src/index.js`
 
 ---
 
-# Redux
-
----
-
-![75%](https://raw.githubusercontent.com/rangle/react-training/training-material/images/redux.png)
+# Flux
 
 ---
 
 # Overview 
 
 - Application architecture
+- Variation of Flux
+- Not just for React
 - Avoids pitfalls of MVC
 - Global application state
 - One way data flow
-- Actions, Reducers, Store, View
 
 ---
 
-![300%](https://raw.githubusercontent.com/rangle/react-training/training-material/images/mvc.png)
+![left 200%](https://raw.githubusercontent.com/rangle/react-training/training-material/images/mvc.png)
+
+# MVC Pitfalls 
+
+- Communication amongst multiple components
+- Cascading effects
+- Difficult to reason about
+- Tangled mess at scale
 
 ---
 
 ![75%](https://raw.githubusercontent.com/rangle/react-training/training-material/images/flux.png)
+
+---
+
+# Redux
+### Why???
+
+---
+
+# The Motivation Behind Redux
+### Reduce complexity
+
+---
+
+# Managing state is hard
+### Server side responses, cached data, local data, routers, spinners, etc. etc. etc
+
+^ Demands of frontend is way beyond what it was in the past
+
+---
+
+# If a model can update another model...
+
+---
+
+## Then a view can update a model..
+
+---
+
+### Which updates another model...
+
+---
+
+### How can we reason about this? 
+### How can we debug this? 
+### How can we replicate errors?
+
+---
+
+## At some point, you no longer understand what happens in your app
+
+---
+
+# You lose control over the WHEN, WHY, and HOW of its state
+
+---
+
+# And as if this isn't difficult enough to reason about... 
+
+---
+
+# Think of the new requirements becoming common in front-end product development... 
+
+---
+
+# Optimistic updates, server-side rendering, fetching data before route transitions, automatic client side caching, etc., etc., etc.
+
+---
+
+# The problem comes from two things:
+## Mutation & Asynchronicity
+
+^ React solves problems in the View layer by removing asynchrony and direct DOM manipulation
+^ However managing state is left up to you
+
+---
+
+# Redux
+## Make state mutations _PREDICTABLE_
+
+---
+
+# Three Principles of Redux
+
+---
+
+# Single source of Truth
+
+- Entire state is stored in an object tree
+	- Easy to debug
+	- Easy to inspect application
+	- Easy to hydrate initial state
+
+---
+
+# State is READ ONLY
+
+- Only way to mutate state is to emit an action
+	- Actions describe what happened
+	- Views, network callbacks, etc. will _never_ mutate state
+	- Mutations are centralized and happen in strict order
+	- No race conditions
+	- Actions are objects, they can be logged, serialized, stored, and replayed 
+
+---
+
+# Changes are made with Pure Functions
+
+- Reducers are responsible for modifying the state tree
+	- Pure functions
+	- Take in previous state, and action, and return new state
+	- Can be split out into smaller reducers to manage specific parts of state tree
+
+---
+
+# That's it!
+
+---
+
+![75%](https://raw.githubusercontent.com/rangle/react-training/training-material/images/redux.png)
 
 ---
 
@@ -607,7 +720,6 @@ function profileReducer(state = {}, action = {}) {
 # Example Time
 ### `shape-insights`
 
-
 ---
 
 # Code Time
@@ -624,9 +736,44 @@ function profileReducer(state = {}, action = {}) {
 
 - Create a `profileReducer`
 - Use Immutable to store your state
-- Expand the reducer and its actions to `Create` and `Delete` entries
 
 ---
+
+# Task #7
+#### Add the ability to `delete` an entry
+
+---
+
+# Task #8
+#### Add the ability to `create` an entry
+
+---
+
+# Forms
+
+---
+
+# Redux Form
+
+- `npm install redux-form`
+- Abstraction for persisting data in the store
+- Useful when form state is needed in the store
+	- Dynamic forms
+	- Forms with Drafts (e.g. blog post)
+	- Debugging
+
+---
+
+# React Formal
+
+- `npm install react-formal`
+- Easy to create Forms
+- Uses `yup` to validate (similar to Joi)
+- Useful for when form state is _not_ needed in the store
+	- Login form
+	- Generic CRUD forms
+
+--- 
 
 # Middleware
 
@@ -637,17 +784,29 @@ function profileReducer(state = {}, action = {}) {
 
 ---
 
-# Redux Form
+# Redux Thunk
 
-- Abstraction for persisting data in the store
-- Easier than doing by hand
-- Provides 
+- Allows us to dispatch `functions`
+- We can perform async operations with this
+- Access `getState` and `dispatch`
 
---- 
+```
+function createNewProfile(username, description) {
+  return (dispatch, getState) => {
+  	dispatch({ type: CREATE_PROFILE_PENDING });
+  	
+  	profiles.create({ username, description })
+  	  .then(response => dispatch({ type: CREATE_PROFILE_SUCCESS, payload: response }))
+  	  .catch(error => dispatch({ type: CREATE_PROFILE_ERROR, payload: error }));
+  };
+}
+```
 
-# Fetch
+---
 
---- 
+# Async Operations
+
+---
 
 # Day 2 Recap
 
