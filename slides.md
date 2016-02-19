@@ -300,7 +300,7 @@ Open `src/index.js`
 
 ---
 
-![left 75%](https://raw.githubusercontent.com/rangle/react-training/training-material/images/lego-plane.png)
+![left 15%](https://raw.githubusercontent.com/rangle/react-training/training-material/images/lego-spaceplane.png)
 
 # Composition
 
