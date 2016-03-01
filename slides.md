@@ -213,9 +213,9 @@ import * as myModule from './myOtherModule';
 
 ---
 
-![left 50%](https://raw.githubusercontent.com/rangle/react-training/training-material/images/atoms.jpg)
+![left fit](https://raw.githubusercontent.com/rangle/react-training/training-material/images/atoms.jpg)
 
-# Atoms
+# Atoms[^1]
 
 - The simplest building block
 - HTML tags
@@ -231,11 +231,13 @@ import * as myModule from './myOtherModule';
 </Form>
 ```
 
+[^1]: Image from Brad Frosts's article, [Atomic Design](http://bradfrost.com/blog/post/atomic-web-design/).
+
 ---
 
-![left 50%](https://raw.githubusercontent.com/rangle/react-training/training-material/images/molecule.jpg)
+![left fit](https://raw.githubusercontent.com/rangle/react-training/training-material/images/molecule.jpg)
 
-# Molecules
+# Molecules[^1]
 
 - Groups of Atoms bonded together
 - Serve as backbone of design system
@@ -251,17 +253,17 @@ import * as myModule from './myOtherModule';
 </Form>
 ```
 
+[^1]: Image from Brad Frosts's article, [Atomic Design](http://bradfrost.com/blog/post/atomic-web-design/).
+
 ---
 
-![left 50%](https://raw.githubusercontent.com/rangle/react-training/training-material/images/organism2.jpg)
+![left fit](https://raw.githubusercontent.com/rangle/react-training/training-material/images/organism2.jpg)
 
-# Organisms
+# Organisms[^1]
 
 - Groups of molecules
-- Relatively complex
 - Distinct section of an interface
 - Portable, easily modified
-- For example, a login modal
 
 ```
 <Header>
@@ -275,25 +277,44 @@ import * as myModule from './myOtherModule';
 </Header>
 ```
 
+[^1]: Image from Brad Frosts's article, [Atomic Design](http://bradfrost.com/blog/post/atomic-web-design/).
+
 ---
 
-![left 50%](https://raw.githubusercontent.com/rangle/react-training/training-material/images/template1.jpg)
+![left 50%](https://raw.githubusercontent.com/rangle/react-training/training-material/images/ecosystem.png)
 
-# Ecosystem
+# Ecosystem[^1]
 
 - What the client will see
 - Connected containers
 - Many components that make up a view
 
+[^1]: Image from Joey Di Nardo's article, [Atomic Components: Managing Dynamic React Components using Atomic Design — Part 1](https://medium.com/@yejodido/atomic-components-managing-dynamic-react-components-using-atomic-design-part-1-5f07451f261f#.9b2faky8s).
+
 ---
 
 ![left fit](https://raw.githubusercontent.com/rangle/react-training/training-material/images/environment.png)
 
-# Environment
+# Environment[^1]
 
 - Root Component
 - Typically the `<App />` component
 - Represents everything packaged together as an application
+
+[^1]: Image from Joey Di Nardo's article, [Atomic Components: Managing Dynamic React Components using Atomic Design — Part 1](https://medium.com/@yejodido/atomic-components-managing-dynamic-react-components-using-atomic-design-part-1-5f07451f261f#.9b2faky8s).
+
+---
+
+# Benefits of this Approach
+
+- Single Responsibility Principle
+- Modular components
+- Build a Brand
+	- Walmart Electrode
+
+---
+
+# The Process
 
 ---
 
@@ -304,6 +325,7 @@ import * as myModule from './myOtherModule';
 - Break the UI into a hierarchy
 - Single Responsibility Principle
 - Think in terms of Information Architecture
+- Atoms first, Molecules second
 
 ---
 
