@@ -287,6 +287,8 @@ import * as myModule from './myOtherModule';
 
 ---
 
+![left fit](https://raw.githubusercontent.com/rangle/react-training/training-material/images/environment.png)
+
 # Environment
 
 - Root Component
