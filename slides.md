@@ -175,7 +175,7 @@ import * as myModule from './myOtherModule';
 
 ---
 
-# Atomic Components
+# Atomic Design
 ### Creatig Building Blocks
 
 ---
@@ -185,7 +185,15 @@ import * as myModule from './myOtherModule';
 
 ---
 
-# What is an Atomic Component
+
+
+---
+
+# What are Atomic Components?
+
+---
+
+![50%](https://raw.githubusercontent.com/rangle/react-training/training-material/images/atomic-components.png)
 
 ---
 
