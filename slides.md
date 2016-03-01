@@ -176,7 +176,7 @@ import * as myModule from './myOtherModule';
 ---
 
 # Atomic Design
-### Creatig Building Blocks
+### By Brad Frost
 
 ---
 
@@ -185,15 +185,113 @@ import * as myModule from './myOtherModule';
 
 ---
 
+# Atomic Design Principles
 
-
----
-
-# What are Atomic Components?
+![inline fill](https://raw.githubusercontent.com/rangle/react-training/training-material/images/atomic-design.png)
 
 ---
 
-![50%](https://raw.githubusercontent.com/rangle/react-training/training-material/images/atomic-components.png)
+# _But..._
+
+---
+
+#[fit] We are designing a _single-page application_
+
+---
+
+# We should never think of our interfaces as _Pages_
+
+---
+
+## Instead we should think in terms of _stateless_, _dynamic abstractions_, which are rendered based on the state provided
+
+---
+
+# Atomic Component Principles
+
+![inline 55%](https://raw.githubusercontent.com/rangle/react-training/training-material/images/atomic-components.png)
+
+---
+
+![left 50%](https://raw.githubusercontent.com/rangle/react-training/training-material/images/atoms.jpg)
+
+# Atoms
+
+- The simplest building block
+- HTML tags
+- Not very useful on their own
+- Easily styled
+- Very reusable
+- Foundation of building a brand
+
+```
+<Form>
+  <Label>Search</Label>
+  <Input />
+</Form>
+```
+
+---
+
+![left 50%](https://raw.githubusercontent.com/rangle/react-training/training-material/images/molecule.jpg)
+
+# Molecules
+
+- Groups of Atoms bonded together
+- Serve as backbone of design system
+- For example, a Search Form
+- Do one thing, do it well
+
+```
+<Form onSubmit={ onSubmit }>
+  <Label>Search</Label>
+  <Input type="text" value={ search } />
+  
+  <Button type="submit">Search</Button>
+</Form>
+```
+
+---
+
+![left 50%](https://raw.githubusercontent.com/rangle/react-training/training-material/images/organism2.jpg)
+
+# Organisms
+
+- Groups of molecules
+- Relatively complex
+- Distinct section of an interface
+- Portable, easily modified
+- For example, a login modal
+
+```
+<Header>
+  <Navigator>
+    <Brand />
+    <NavItem to="home">Home</NavItem>
+    <NavItem to="about">About</NavItem>
+    <NavItem to="blog">Blog</NavItem>
+  </Navigator>
+  <SearchForm />
+</Header>
+```
+
+---
+
+![left 50%](https://raw.githubusercontent.com/rangle/react-training/training-material/images/template1.jpg)
+
+# Ecosystem
+
+- What the client will see
+- Connected containers
+- Many components that make up a view
+
+---
+
+# Environment
+
+- Root Component
+- Typically the `<App />` component
+- Represents everything packaged together as an application
 
 ---
 
