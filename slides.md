@@ -175,6 +175,20 @@ import * as myModule from './myOtherModule';
 
 ---
 
+# Atomic Components
+### Creatig Building Blocks
+
+---
+
+> _We're not designing pages, we're designing systems of components_
+> -- Stephen Hay
+
+---
+
+# What is an Atomic Component
+
+---
+
 ![left 300%](https://raw.githubusercontent.com/rangle/react-training/training-material/images/thinking-in-react-mock.png)
 
 # Start with a Mock
