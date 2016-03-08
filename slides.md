@@ -873,7 +873,6 @@ function profileReducer(state = {}, action = {}) {
 - Useful when form state is needed in the store
 	- Dynamic forms
 	- Forms with Drafts (e.g. blog post)
-	- Debugging
 
 ---
 
@@ -938,10 +937,117 @@ function createNewProfile(username, description) {
 
 ---
 
+# Testing
+
+### React Components, Redux
+
+---
+
+# React: Components
+
+- Use AirBnB Testing Util
+	- `npm install enzyme --save-dev`
+- Compile React Components -> Perform Test
+- Check to see DOM exists based on provided state
+- Test lifecycle hooks
+
+---
+
+```
+describe('(Container) Home', () => {
+  it('calls componentDidMount', () => {
+    spy(Home.prototype, 'componentDidMount');
+    const wrapper = mount(<Home onComponentDidMount={() => {}} />);
+    expect(Home.prototype.componentDidMount.calledOnce).to.equal(true);
+  });
+  
+  it('should render a loading visual if `isLoading` is true', () => {
+    const wrapper = mount(
+      <Home
+        onComponentDidMount={() => {}}
+        isLoading={ true } />
+    );
+
+
+    expect(wrapper.find('.js-loading')).to.have.length(1);
+  });
+  ...
+```
+
+---
+
+# Redux: Reducers
+
+- Simple because they are pure.
+- Just like testing a JavaScript function
+- Given this _action_, I expect this _result_
+
+---
+
+# Redux: Actions
+
+- Again just a function
+- Given these params, I expect this object / response
+- Can be tricky with async actions
+
+---
+
+# Redux: Async Actions
+
+- Use `redux-mock-store` to create a mock store
+- Useful for testing async action creators and middleware
+
+---
+
+```
+import configureMockStore from 'redux-mock-store'
+import thunk from 'redux-thunk'
+import * as actions from '../../actions/counter'
+import * as types from '../../constants/ActionTypes'
+import nock from 'nock'
+
+const middlewares = [ thunk ]
+const mockStore = configureMockStore(middlewares)
+
+describe('async actions', () => {
+  afterEach(() => {
+    nock.cleanAll()
+  })
+
+  it('creates FETCH_TODOS_SUCCESS when fetching todos has been done', (done) => {
+    nock('http://example.com/')
+      .get('/todos')
+      .reply(200, { body: { todos: ['do something'] }})
+
+    const expectedActions = [
+      { type: types.FETCH_TODOS_REQUEST },
+      { type: types.FETCH_TODOS_SUCCESS, body: { todos: ['do something']  } }
+    ]
+    const store = mockStore({ todos: [] }, expectedActions, done)
+    store.dispatch(actions.fetchTodos())
+  })
+})
+```
+
+---
+
+# Let's try it out...
+
+### `git checkout 11-testing`
+
+---
+
+# Task 11
+### Create tests for `<Alert />`
+
+---
+
+
 # Day 2 Recap
 
 - How to work with Immutable data
 - Redux
+- Testing
 
 ---
 
