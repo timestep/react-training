@@ -48,7 +48,7 @@ function createReducer(state = INITIAL_STATE, action = {}) {
 }
 
 export function viewMatches() {
-  return { type: VIEW_LATEST_MATCHES };
+  return { type: VIEW_LATEST_MATCHES, payload: Date.now() };
 }
 
 export function matchesPending() {

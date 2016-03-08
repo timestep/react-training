@@ -4,7 +4,7 @@ function _renderLoading() {
   return (
     <div
       style={ styles.loading }
-      className="flex flex-auto">
+      className="js-loading flex flex-auto">
       <img src="src/assets/loading.svg" />
     </div>
   );
@@ -12,7 +12,7 @@ function _renderLoading() {
 
 function _renderChildren(children, className) {
   return (
-    <div className={ className } style={ styles.content }>
+    <div className={ `js-loaded ${ className }` } style={ styles.content }>
       { children }
     </div>
   );

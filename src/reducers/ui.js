@@ -10,13 +10,13 @@ const INITIAL_STATE = fromJS({
   lastViewedMatches: null,
 });
 
-function modalReducer(state = INITIAL_STATE, action = {}) {
+function uiReducer(state = INITIAL_STATE, action = {}) {
   switch (action.type) {
     case CHANGE_MODAL:
       return state.set('modalVisible', action.payload);
 
     case VIEW_LATEST_MATCHES:
-      return state.set('lastViewedMatches', Date.now());
+      return state.set('lastViewedMatches', action.payload);
 
     default:
       return state;
@@ -37,4 +37,4 @@ export function changeModal(id) {
   return { type: CHANGE_MODAL, payload: id };
 }
 
-export default modalReducer;
+export default uiReducer;

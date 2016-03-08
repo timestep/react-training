@@ -5,7 +5,7 @@ import Button from './Button';
 
 const TopicCard = ({ topic, onYes, onNo }) => {
   return (
-    <div className="inline-block">
+    <div className="js-topic-card inline-block">
       <Card topic={ topic } />
 
       <div className="flex flex-justify m2">
@@ -22,8 +22,8 @@ const TopicCard = ({ topic, onYes, onNo }) => {
   );
 };
 
+TopicCard.displayName = 'TopicCard';
 TopicCard.defaultProps = {};
-
 TopicCard.propTypes = {
   topic: PropTypes.string.isRequired,
   onYes: PropTypes.func.isRequired,

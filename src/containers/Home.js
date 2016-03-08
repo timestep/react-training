@@ -25,7 +25,7 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-class Home extends Component {
+export class Home extends Component {
   componentDidMount() {
     this.props.onComponentDidMount();
   }
@@ -75,5 +75,5 @@ Home.propTypes = {
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps,
+  mapDispatchToProps
 )(Home);
