@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import CardList from './components/CardList';
+import CardListState from './components/CardListState';
 
 const profiles = [
   {
@@ -26,7 +26,9 @@ const profiles = [
   },
 ];
 
+let dishonored = [];
+
 ReactDOM.render(
-  <CardList profiles={ profiles }/>,
+  <CardListState profiles={ profiles } dishonored={ dishonored }/>,
   document.getElementById('root')
 );

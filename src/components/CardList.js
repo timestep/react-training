@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react';
 import ProfileCard from './ProfileCard';
 
 const CardList = ({ profiles }) => {
-  console.log(profiles);
   return (
     <dive>
       { profiles.map(ProfileCard) }

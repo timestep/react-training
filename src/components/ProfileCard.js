@@ -2,14 +2,16 @@ import React, { PropTypes } from 'react';
 import Card from './Card';
 import ProfileImage from './ProfileImage';
 import Section from './Section';
+import Button from './Button';
 
-const ProfileCard = ({ name, description, id}) => {
+const ProfileCard = ({ name, description, id, onClick}) => {
   return (
     <Card key={ id }>
       <ProfileImage uri="./src/assets/placeholder.svg"/>
       <Section title={ name }>
         { description }
       </Section>
+      <Button onClick={ onClick }>Delete</Button>
     </Card>
   );
 };
