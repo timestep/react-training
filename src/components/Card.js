@@ -1,9 +1,13 @@
 import React, { PropTypes } from 'react';
 
-const Card = () => {
+const style = {
+  flex: 'auto',
+};
+
+const Card = ({ children }) => {
   return (
-    <div>
-      ...
+    <div style={ style }>
+      { children }
     </div>
   );
 };
@@ -13,7 +17,7 @@ Card.propTypes = {
   // ...
 };
 Card.defaultProps = {
-  // ...
+  children: PropTypes.node,
 };
 
 export default Card;
