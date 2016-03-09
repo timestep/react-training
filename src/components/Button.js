@@ -12,7 +12,7 @@ Button.propTypes = {
    * The children of the component to render
    */
   children: PropTypes.node,
-  onClick: PropTypes.function,
+  onClick: PropTypes.func,
 };
 Button.defaultProps = {};
 

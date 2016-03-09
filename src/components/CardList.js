@@ -3,9 +3,9 @@ import ProfileCard from './ProfileCard';
 
 const CardList = ({ profiles }) => {
   return (
-    <dive>
+    <div>
       { profiles.map(ProfileCard) }
-    </dive>
+    </div>
   );
 };
 
